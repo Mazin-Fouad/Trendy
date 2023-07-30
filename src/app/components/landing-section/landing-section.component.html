@@ -1,3 +1,60 @@
 <section>
-  <app-navbar></app-navbar>
+  <div class="container">
+    <app-navbar></app-navbar>
+
+    <div
+      class="feature-list p-4 rounded-pill mt-5 mb-5 d-flex flex-column align-items-center flex-md-row justify-content-md-around"
+    >
+      <span
+        ><i class="fa-solid fa-circle-check" style="color: #3734a9"></i> Free
+        Register</span
+      >
+      <span
+        ><i class="fa-solid fa-circle-check" style="color: #3734a9"></i> Great
+        Service</span
+      >
+      <span
+        ><i class="fa-solid fa-circle-check" style="color: #3734a9"></i> Easy
+        payment</span
+      >
+    </div>
+
+    <div class="container mt-5 px-4">
+      <div class="row justify-content-between align-items-center">
+        <div class="col col-md-5">
+          <h1>{{ storeData.mainText }}</h1>
+          <h4 class="mt-5 mb-3">{{ storeData.discribction }}</h4>
+
+          <div class="d-flex justify-content-start align-items-center">
+            <a href="#" class="btn btn-primary customBtn me-5" role="button">{{
+              storeData.btnText
+            }}</a>
+
+            <a
+              [href]="storeData.youtubeChannel"
+              class="d-flex align-content-center fw-bold"
+              ><i
+                class="fa-brands fa-youtube fs-4 me-1"
+                style="color: #e01f1f"
+              ></i>
+              {{ storeData.btnText }}</a
+            >
+          </div>
+        </div>
+
+        <div class="col col-md-6 d-flex justify-content-around">
+          <div class="d-flex flex-column align-items-center">
+            <img class="rounded-pill" [src]="storeData.firstImg" />
+            <div class="d-flex">
+              <img *ngFor="let subImg of storeData.subImgs" [src]="subImg" />
+            </div>
+          </div>
+          <img
+            class="rounded-pill small-img align-self-center"
+            [src]="storeData.secondImg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,4 +1,13 @@
 section {
     min-height: 100dvh;
     background-color: #74c1de;
+
+    .feature-list {
+        background-color: #d2ebf5;
+        max-width: 500px;
+    }
+
+    .small-img {
+        height: 350px;
+    }
 }

@@ -4,5 +4,6 @@ export interface LandingInfo {
   btnText: string;
   firstImg: string;
   secondImg: string;
+  subImgs: string[];
   youtubeChannel: string;
 }

@@ -15,6 +15,11 @@ export class TrendyInfoService {
       btnText: 'Shop collections',
       firstImg: 'assets/imgs/landing-first-img.png',
       secondImg: 'assets/imgs/landing-second-img.png',
+      subImgs: [
+        '/assets/imgs/sub-img-1.png',
+        '/assets/imgs/sub-img-2.png',
+        '/assets/imgs/sub-img-3.png',
+      ],
       youtubeChannel: 'https://www.youtube.com/',
     };
   }
