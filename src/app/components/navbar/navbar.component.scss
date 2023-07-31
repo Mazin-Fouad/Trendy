@@ -1,6 +1,8 @@
+@import "../../../styles.scss";
+
 .navbar-brand {
     img {
-        width: 120px;
+        width: 130px;
         object-fit: cover;
     }
 }
@@ -9,7 +11,11 @@
     text-decoration: underline;
 }
 
+a {
+    color: $links-color-darkGrey;
+}
+
 i {
-    background-color: #fff;
+    background-color: $bg-color-light;
     border-radius: 100%;
 }

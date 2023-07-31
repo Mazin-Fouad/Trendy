@@ -5,12 +5,19 @@
     font-style: normal;
 }
 
+$bg-color-main: #74c1de;
+$bg-color-light: #d2ebf5;
+$links-color-darkGrey: #21363e;
+$links-color-royalblue: #3734a9;
+$text-color-lightGrey: #81a4b1;
+$text-color-geen: #3c9a70;
+$text-color-royalBlue: #3734a9;
+$text-color-pink: #b71dba;
+$text-color-lightGreen: #2c7b98;
+$text-color-mustard: #baaa1d;
+
 body {
     font-family: "Open Sans", fallback, sans-serif;
-}
-
-.customBtn {
-    background-color: #3734a9;
 }
 
 a {

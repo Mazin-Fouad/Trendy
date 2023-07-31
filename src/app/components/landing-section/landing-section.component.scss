@@ -1,6 +1,8 @@
+@import "../../../styles.scss";
+
 section {
     min-height: 100dvh;
-    background-color: #74c1de;
+    background-color: $bg-color-main;
 
     .feature-list {
         background-color: #d2ebf5;
@@ -9,5 +11,24 @@ section {
 
     .small-img {
         height: 350px;
+    }
+
+    .imgs-clip {
+        width: 350px;
+        margin-top: -30px;
+        background: rgba(255, 255, 255, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.8px);
+        -webkit-backdrop-filter: blur(7.8px);
+        border: 1px solid rgba(255, 255, 255, 0.57);
+    }
+
+    .costum-color {
+        background-color: $links-color-darkGrey;
+    }
+
+    .customBtn {
+        background-color: $links-color-royalblue;
     }
 }

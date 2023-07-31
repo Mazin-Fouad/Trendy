@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrendyInfoService } from 'src/app/services/trendy-info.service';
+import { TrendyInfoService } from 'src/app/services/staticData/trendy-info.service';
 import { LandingInfo } from 'src/app/viewModels/landing-info';
 
 @Component({
