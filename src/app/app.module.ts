@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LandingSectionComponent } from './components/landing-section/landing-section.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrandsBoxComponent } from './components/brands-box/brands-box.component';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingSectionComponent,
     NavbarComponent,
-    BrandsBoxComponent
+    BrandsBoxComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
