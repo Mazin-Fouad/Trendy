@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,7 @@ import { LandingSectionComponent } from './components/landing-section/landing-se
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrandsBoxComponent } from './components/brands-box/brands-box.component';
 import { ProductsComponent } from './components/products/products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,12 @@ import { ProductsComponent } from './components/products/products.component';
     LandingSectionComponent,
     NavbarComponent,
     BrandsBoxComponent,
-    ProductsComponent
+    ProductsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
