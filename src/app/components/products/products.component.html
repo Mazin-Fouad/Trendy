@@ -1,7 +1,115 @@
 <section class="pt-5">
   <div class="container">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quidem enim
-    vero ut alias deleniti iure officia. Eum ducimus sit distinctio illo
-    pariatur! Voluptate, possimus! Vitae labore odio esse molestiae!
+    <div class="row">
+      <ng-container *ngFor="let product of productsList">
+        <div
+          class="productCard col-md-3 mb-5 position-relative"
+          *ngIf="product.category !== 'electronics'"
+        >
+          <img
+            class="product-img img-fluid"
+            [src]="product.image"
+            alt="Product Image"
+          />
+
+          <!-- Rating stars logic -->
+          <div class="mt-1">
+            <img
+              *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=0.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 1 && product.rating.rate < 1.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=1, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 1.5 && product.rating.rate < 2"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=1.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 2 && product.rating.rate < 2.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=2, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 2.5 && product.rating.rate < 3"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=2.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 3 && product.rating.rate < 3.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=3, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 3.5 && product.rating.rate < 4"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=3.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 4 && product.rating.rate < 4.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=4, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 4.5 && product.rating.rate < 5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=4.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate === 5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=5, Mode=Light.png"
+              alt="rating stars"
+            />
+          </div>
+
+          <p class="fw-bold">{{ product.title }}</p>
+          <span>{{ product.price | currency : "EUR" }}</span>
+
+          <!-- Hover icons -->
+          <div
+            class="flex-column position-absolute z-2 verticalIcons-container d-none"
+          >
+            <a
+              href="#"
+              class="border border-1 border-black mb-4 d-flex justify-content-center align-items-center icon-container"
+            >
+              <i class="fa-solid fa-heart fs-3" style="color: #000714"></i>
+            </a>
+
+            <a
+              href="#"
+              class="border border-1 border-black d-flex justify-content-center align-items-center icon-container"
+              ><i
+                class="fa-solid fa-cart-shopping fs-3"
+                style="color: #000714"
+              ></i
+            ></a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </section>

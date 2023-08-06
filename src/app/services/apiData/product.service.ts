@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpParams,
-} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { Product } from 'src/app/models/product';
@@ -32,13 +28,13 @@ export class ProductService {
     );
   }
 
-  getAllProducts() {
+  getAllProducts(): Observable<Product[]> {
     return this.http
-      .get<Product[]>(environment.baseUrl + 'products')
+      .get<Product[]>(environment.baseUrl + '/products')
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getProductsByCategory(category: string) {
+  getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
       .get<Product[]>(environment.baseUrl + `products/category/${category}`)
       .pipe(retry(2), catchError(this.handleError));

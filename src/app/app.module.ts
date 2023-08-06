@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrandsBoxComponent } from './components/brands-box/brands-box.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgxSkeletonLoaderModule,
+    StarRatingModule.forRoot(),
+  ],
 
   providers: [],
   bootstrap: [AppComponent],
