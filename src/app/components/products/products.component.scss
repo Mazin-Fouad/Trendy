@@ -5,6 +5,10 @@ section {
         height: 240px;
     }
 
+    .product-image-container {
+        width: 100%;
+    }
+
     .rating-stars {
         height: 15px;
     }
@@ -25,6 +29,17 @@ section {
         }
     }
 
+    @keyframes slide-in-right {
+        0% {
+            transform: translateX(30px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(15px);
+            opacity: 1;
+        }
+    }
+
     .verticalIcons-container {
         top: 0;
         right: 2em;
@@ -33,21 +48,6 @@ section {
             width: 40px;
             height: 40px;
             background-color: $bg-color-lightGray;
-        }
-    }
-
-    // .slide-in-right {
-
-    // }
-
-    @keyframes slide-in-right {
-        0% {
-            transform: translateX(20px);
-            opacity: 0;
-        }
-        100% {
-            transform: translateX(0);
-            opacity: 1;
         }
     }
 }

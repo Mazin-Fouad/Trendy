@@ -1,16 +1,52 @@
 <section class="pt-5">
   <div class="container">
+    <div style="width: 100%" class="d-flex justify-content-end mb-5">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Select Category
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" href="#" (click)="onCategoryChange('all')"
+              >All</a
+            >
+          </li>
+          <ng-container *ngFor="let cat of categoriesList">
+            <li *ngIf="cat !== 'electronics'">
+              <a
+                class="dropdown-item"
+                href="#"
+                (click)="onCategoryChange(cat)"
+                >{{ cat | titlecase }}</a
+              >
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
     <div class="row">
       <ng-container *ngFor="let product of productsList">
         <div
           class="productCard col-md-3 mb-5 position-relative"
-          *ngIf="product.category !== 'electronics'"
+          *ngIf="
+            (selectedCategory === 'all' ||
+              product.category === selectedCategory) &&
+            product.category !== 'electronics'
+          "
         >
-          <img
-            class="product-img img-fluid"
-            [src]="product.image"
-            alt="Product Image"
-          />
+          <!-- Product image -->
+          <div class="product-image-container d-flex justify-content-center">
+            <img
+              class="product-img img-fluid"
+              [src]="product.image"
+              alt="Product Image"
+            />
+          </div>
 
           <!-- Rating stars logic -->
           <div class="mt-1">
@@ -86,7 +122,7 @@
           </div>
 
           <p class="fw-bold">{{ product.title }}</p>
-          <span>{{ product.price | currency : "EUR" }}</span>
+          <span class="fs-6"> {{ product.price | currency : "EUR" }}</span>
 
           <!-- Hover icons -->
           <div
@@ -94,19 +130,27 @@
           >
             <a
               href="#"
-              class="border border-1 border-black mb-4 d-flex justify-content-center align-items-center icon-container"
+              class="border border-1 border-black mb-2 d-flex justify-content-center align-items-center icon-container"
             >
-              <i class="fa-solid fa-heart fs-3" style="color: #000714"></i>
+              <i class="fa-regular fa-heart fs-4" style="color: #000714"></i>
+              <ng-template
+                ><i class="fa-solid fa-heart fs-4" style="color: #000714"></i
+              ></ng-template>
             </a>
 
             <a
               href="#"
-              class="border border-1 border-black d-flex justify-content-center align-items-center icon-container"
+              class="border border-1 border-black mb-2 d-flex justify-content-center align-items-center icon-container"
               ><i
-                class="fa-solid fa-cart-shopping fs-3"
+                class="fa-solid fa-cart-shopping fs-4"
                 style="color: #000714"
               ></i
             ></a>
+            <a
+              href="#"
+              class="border border-1 border-black d-flex justify-content-center align-items-center icon-container"
+              ><i class="fa-solid fa-info fs-4" style="color: #000714"></i>
+            </a>
           </div>
         </div>
       </ng-container>

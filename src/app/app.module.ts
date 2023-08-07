@@ -10,7 +10,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { StarRatingModule } from 'angular-star-rating';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,8 @@ import { StarRatingModule } from 'angular-star-rating';
     HttpClientModule,
     NgxSkeletonLoaderModule,
     StarRatingModule.forRoot(),
+    BrowserAnimationsModule,
+    MatMenuModule,
   ],
 
   providers: [],

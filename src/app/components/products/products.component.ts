@@ -9,13 +9,30 @@ import { ProductService } from 'src/app/services/apiData/product.service';
 })
 export class ProductsComponent implements OnInit {
   productsList: Product[] = [];
+  categoriesList: string[] = [];
+  selectedCategory: string = 'all';
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
+    this.getProducts();
+    this.getCategories();
+  }
+
+  getProducts(): void {
     this.productService.getAllProducts().subscribe((products) => {
       this.productsList = products;
-      console.log(this.productsList);
+      this.selectedCategory = 'all';
     });
+  }
+
+  getCategories(): void {
+    this.productService.getAllCategories().subscribe((category) => {
+      this.categoriesList = category.reverse();
+    });
+  }
+
+  onCategoryChange(category: string): void {
+    this.selectedCategory = category;
   }
 }

@@ -34,6 +34,12 @@ export class ProductService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getAllCategories(): Observable<string[]> {
+    return this.http
+      .get<string[]>(environment.baseUrl + '/products/categories')
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
       .get<Product[]>(environment.baseUrl + `products/category/${category}`)
