@@ -11,8 +11,13 @@ export class ProductsComponent implements OnInit {
   productsList: Product[] = [];
   categoriesList: string[] = [];
   selectedCategory: string = 'all';
+  contentIsLoading: boolean = true;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {
+    setTimeout(() => {
+      this.contentIsLoading = false;
+    }, 1000);
+  }
 
   ngOnInit(): void {
     this.getProducts();
@@ -34,5 +39,9 @@ export class ProductsComponent implements OnInit {
 
   onCategoryChange(category: string): void {
     this.selectedCategory = category;
+  }
+
+  trackById(index: number, item: any): number {
+    return item.id;
   }
 }

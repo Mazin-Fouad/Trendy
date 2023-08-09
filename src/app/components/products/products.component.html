@@ -1,6 +1,7 @@
 <section class="pt-5">
   <div class="container">
     <div style="width: 100%" class="d-flex justify-content-end mb-5">
+      <!-- Categories Dropdown -->
       <div class="dropdown">
         <button
           class="btn btn-secondary dropdown-toggle"
@@ -12,31 +13,29 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a class="dropdown-item" href="#" (click)="onCategoryChange('all')"
-              >All</a
-            >
+            <a class="dropdown-item" (click)="onCategoryChange('all')">All</a>
           </li>
           <ng-container *ngFor="let cat of categoriesList">
             <li *ngIf="cat !== 'electronics'">
-              <a
-                class="dropdown-item"
-                href="#"
-                (click)="onCategoryChange(cat)"
-                >{{ cat | titlecase }}</a
-              >
+              <a class="dropdown-item" (click)="onCategoryChange(cat)">{{
+                cat | titlecase
+              }}</a>
             </li>
           </ng-container>
         </ul>
       </div>
     </div>
+
+    <!-- The view of the products -->
     <div class="row">
-      <ng-container *ngFor="let product of productsList">
+      <ng-container *ngFor="let product of productsList; trackBy: trackById">
         <div
           class="productCard col-md-3 mb-5 position-relative"
           *ngIf="
             (selectedCategory === 'all' ||
               product.category === selectedCategory) &&
-            product.category !== 'electronics'
+            product.category !== 'electronics' &&
+            !contentIsLoading
           "
         >
           <!-- Product image -->
@@ -155,5 +154,10 @@
         </div>
       </ng-container>
     </div>
+
+    <!-- Smooth content loading -->
+    <app-products-loading-view
+      *ngIf="contentIsLoading"
+    ></app-products-loading-view>
   </div>
 </section>

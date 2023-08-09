@@ -12,6 +12,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { StarRatingModule } from 'angular-star-rating';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProductsLoadingViewComponent } from './components/products-loading-view/products-loading-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
     NavbarComponent,
     BrandsBoxComponent,
     ProductsComponent,
+    ProductsLoadingViewComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

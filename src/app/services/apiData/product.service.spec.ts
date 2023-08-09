@@ -27,10 +27,17 @@ describe('ProductService', () => {
     expect(service).toBeTruthy();
   });
 
-  // Tests that getAllProducts returns an observable of Product array
   it('should return an observable of Product array', () => {
     service.getAllProducts().subscribe();
     const req = httpMock.expectOne(environment.baseUrl + '/products');
+    expect(req.request.method).toBe('GET');
+  });
+
+  it('should return an observable of string array', () => {
+    service.getAllCategories().subscribe();
+    const req = httpMock.expectOne(
+      environment.baseUrl + '/products/categories'
+    );
     expect(req.request.method).toBe('GET');
   });
 });

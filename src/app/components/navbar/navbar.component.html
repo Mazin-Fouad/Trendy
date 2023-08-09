@@ -1,4 +1,5 @@
 <nav class="navbar bg-transparent border-bottom border-white">
+  <!-- Brand Logo -->
   <div class="container row me-auto ms-auto p-3">
     <div
       class="col-md-4 d-flex justify-content-center justify-content-md-start"
@@ -8,24 +9,38 @@
       /></a>
     </div>
 
+    <!-- Important links -->
     <div
-      class="col-md-4 d-flex justify-content-center justify-content-md-around mt-3 mt-md-0"
+      class="col-md-4 d-flex flex-column align-items-center flex-sm-row justify-content-sm-center justify-content-md-around"
     >
-      <a class="text-decoration-none fw-bold" routerLinkActive="active" href="#"
+      <a
+        class="text-decoration-none fs-5 fw-bold mt-3 mt-sm-0"
+        routerLinkActive="active"
+        href="#"
         >Home</a
       >
-      <a class="text-decoration-none fw-bold" href="#">Products</a>
-      <a class="text-decoration-none fw-bold" href="#">Contact</a>
+      <a class="text-decoration-none fs-5 fw-bold mt-3 mt-sm-0" href="#"
+        >Products</a
+      >
+      <a class="text-decoration-none fs-5 fw-bold mt-3 mt-sm-0" href="#"
+        >Contact</a
+      >
     </div>
 
+    <!-- Cart and search -->
     <div
-      class="col-md-4 d-flex justify-content-center justify-content-md-evenly mt-3 mt-md-0"
+      class="col-md-4 d-flex flex-column align-items-center flex-sm-row justify-content-sm-around"
     >
-      <a class="text-decoration-none text-primary fw-bold me-2 me-md-0" href="#"
+      <a
+        class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 me-2 me-md-0 fs-5"
+        href="#"
         ><i class="fa-solid fa-magnifying-glass me-1 p-2"></i>Search</a
       >
-      <a class="text-decoration-none text-primary fw-bold" href="#"
-        ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>Cart</a
+      <a
+        class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0"
+        href="#"
+        ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>Cart
+        <span class="ms-2 fs-6">5 Items in cart</span></a
       >
     </div>
   </div>

@@ -39,10 +39,4 @@ export class ProductService {
       .get<string[]>(environment.baseUrl + '/products/categories')
       .pipe(retry(2), catchError(this.handleError));
   }
-
-  getProductsByCategory(category: string): Observable<Product[]> {
-    return this.http
-      .get<Product[]>(environment.baseUrl + `products/category/${category}`)
-      .pipe(retry(2), catchError(this.handleError));
-  }
 }
