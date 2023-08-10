@@ -13,6 +13,11 @@ import { StarRatingModule } from 'angular-star-rating';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProductsLoadingViewComponent } from './components/products-loading-view/products-loading-view.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +26,7 @@ import { ProductsLoadingViewComponent } from './components/products-loading-view
     BrandsBoxComponent,
     ProductsComponent,
     ProductsLoadingViewComponent,
+    ProductDetailsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -31,6 +37,10 @@ import { ProductsLoadingViewComponent } from './components/products-loading-view
     StarRatingModule.forRoot(),
     BrowserAnimationsModule,
     MatMenuModule,
+    MatDialogModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
   ],
 
   providers: [],

@@ -1,0 +1,94 @@
+<div class="container text-center p-3 z-3">
+  <div class="row justify-content-around">
+    <div class="col-md-4">
+      <img
+        class="img-fluid product-img"
+        [src]="product.image"
+        alt="product image"
+      />
+    </div>
+    <div class="col-md-6 flex-column text-start">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description }}</p>
+
+      <div class="d-flex">
+        <!-- Rating stars -->
+        <div class="mt-1">
+          <img
+            *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=0.5, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 1 && product.rating.rate < 1.5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=1, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 1.5 && product.rating.rate < 2"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=1.5, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 2 && product.rating.rate < 2.5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=2, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 2.5 && product.rating.rate < 3"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=2.5, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 3 && product.rating.rate < 3.5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=3, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 3.5 && product.rating.rate < 4"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=3.5, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 4 && product.rating.rate < 4.5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=4, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate >= 4.5 && product.rating.rate < 5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=4.5, Mode=Light.png"
+            alt="rating stars"
+          />
+
+          <img
+            *ngIf="product.rating.rate === 5"
+            class="rating-stars"
+            src="assets/imgs/rating-icons/Rating=5, Mode=Light.png"
+            alt="rating stars"
+          />
+        </div>
+
+        <span class="text-warning p-1 align-self-start ms-1 fw-light"
+          >{{ product.rating.count }} (Reviews)</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,6 +37,7 @@
             product.category !== 'electronics' &&
             !contentIsLoading
           "
+          (click)="openDialog(product)"
         >
           <!-- Product image -->
           <div class="product-image-container d-flex justify-content-center">
@@ -47,7 +48,7 @@
             />
           </div>
 
-          <!-- Rating stars logic -->
+          <!-- Rating stars -->
           <div class="mt-1">
             <img
               *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
@@ -138,7 +139,7 @@
             </a>
 
             <a
-              href="#"
+              (click)="openDialog(product)"
               class="border border-1 border-black mb-2 d-flex justify-content-center align-items-center icon-container"
               ><i
                 class="fa-solid fa-cart-shopping fs-4"

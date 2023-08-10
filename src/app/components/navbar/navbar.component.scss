@@ -1,21 +1,25 @@
 @import "../../../styles.scss";
 
-.navbar-brand {
-    img {
-        width: 130px;
-        object-fit: cover;
+.navbar {
+    background-color: $bg-color-main !important;
+
+    .navbar-brand {
+        img {
+            width: 130px;
+            object-fit: cover;
+        }
     }
-}
 
-.active {
-    text-decoration: underline;
-}
+    .active {
+        text-decoration: underline;
+    }
 
-a {
-    color: $links-color-darkGrey;
-}
+    a {
+        color: $links-color-darkGrey;
+    }
 
-i {
-    background-color: $bg-color-light;
-    border-radius: 100%;
+    i {
+        background-color: $bg-color-light;
+        border-radius: 100%;
+    }
 }
