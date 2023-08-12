@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { PaymentInstructionsComponent } from './components/payment-instructions/payment-instructions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
     ProductsComponent,
     ProductsLoadingViewComponent,
     ProductDetailsComponent,
+    PaymentInstructionsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

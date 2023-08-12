@@ -1,4 +1,4 @@
-<div class="container text-center p-3 z-3">
+<div class="container text-center p-3 z-3 mt-2">
   <div class="row justify-content-around">
     <div class="col-md-4">
       <img
@@ -7,12 +7,12 @@
         alt="product image"
       />
     </div>
-    <div class="col-md-6 flex-column text-start">
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.description }}</p>
+    <div class="col-md-6 flex-column text-start mt-5">
+      <h1>{{ product.title }}</h1>
+      <p class="fs-6 fw-lighter text-capitalize">{{ product.description }}</p>
 
+      <!-- Rating stars -->
       <div class="d-flex">
-        <!-- Rating stars -->
         <div class="mt-1">
           <img
             *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
@@ -88,6 +88,28 @@
         <span class="text-warning p-1 align-self-start ms-1 fw-light"
           >{{ product.rating.count }} (Reviews)</span
         >
+      </div>
+      <h2 class="mt-1 fs-4 product-price">
+        {{ product.price | currency : "EUR" : "symbol" : "1.2-2" }}
+      </h2>
+
+      <p class="shipping-info">
+        Incl. VAT., excl. Shipping costs <br />
+        <span
+          class="fs-7 fw-bold border-3 border-bottom cursor-pointer"
+          (click)="openDialog()"
+        >
+          To the payment information </span
+        ><br />
+        Delivery time: 2-5 working days
+      </p>
+
+      <div class="addToCart d-flex">
+        <i
+          class="fa-regular fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
+          style="color: #000000"
+        ></i>
+        <button class="flex-lg-grow-1 btn btn-dark fs-5">Add to cart</button>
       </div>
     </div>
   </div>

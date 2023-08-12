@@ -1,6 +1,25 @@
+@import "../../../styles.scss";
+
 section {
     .product-img {
         width: 100%;
         height: auto;
+    }
+}
+
+.product-price {
+    color: $text-color-pinkSecondary !important;
+}
+
+.shipping-info {
+    color: $links-color-darkGrey;
+}
+
+.addToCart {
+    width: 300px;
+
+    .btn {
+        border-radius: unset !important;
+        border: unset !important;
     }
 }
