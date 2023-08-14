@@ -7,6 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { Product } from 'src/app/models/product';
 import { PaymentInstructionsComponent } from '../payment-instructions/payment-instructions.component';
+import { SharedService } from 'src/app/services/apiData/shared.service';
 
 @Component({
   selector: 'app-product-details',
@@ -19,7 +20,8 @@ export class ProductDetailsComponent {
   constructor(
     public dialogRef: MatDialogRef<ProductsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Product,
-    public paymentInstructionsDialog: MatDialog
+    public paymentInstructionsDialog: MatDialog,
+    private sharedService: SharedService
   ) {
     this.product = data;
   }
@@ -33,5 +35,15 @@ export class ProductDetailsComponent {
       width: '800px',
       height: '300px',
     });
+  }
+
+  toggleFavorite(product: Product): void {
+    this.sharedService.toggleFavorite(product);
+  }
+
+  isFavorite(product: Product): boolean {
+    return this.sharedService.favorites.some(
+      (favProduct) => favProduct.id === product.id
+    );
   }
 }

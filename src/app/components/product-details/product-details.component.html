@@ -106,9 +106,19 @@
 
       <div class="addToCart d-flex">
         <i
+          (click)="toggleFavorite(product); $event.stopPropagation()"
+          *ngIf="!isFavorite(product)"
           class="fa-regular fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
           style="color: #000000"
         ></i>
+
+        <i
+          (click)="toggleFavorite(product); $event.stopPropagation()"
+          *ngIf="isFavorite(product)"
+          class="fa-solid fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
+          style="color: #00040a"
+        ></i>
+
         <button class="flex-lg-grow-1 btn btn-dark fs-5">Add to cart</button>
       </div>
     </div>
