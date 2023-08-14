@@ -28,7 +28,9 @@
 
     <!-- The view of the products -->
     <div class="row">
-      <ng-container *ngFor="let product of productsList; trackBy: trackById">
+      <ng-container
+        *ngFor="let product of productsList; let i = index; trackBy: trackById"
+      >
         <div
           class="productCard col-md-3 mb-5 position-relative"
           *ngIf="
@@ -37,11 +39,11 @@
             product.category !== 'electronics' &&
             !contentIsLoading
           "
-          (click)="openDialog(product)"
         >
           <!-- Product image -->
           <div class="product-image-container d-flex justify-content-center">
             <img
+              (click)="openDialog(product)"
               class="product-img img-fluid"
               [src]="product.image"
               alt="Product Image"
@@ -129,13 +131,19 @@
             class="flex-column position-absolute z-2 verticalIcons-container d-none"
           >
             <a
-              href="#"
+              (click)="toggleFavorite(product); $event.stopPropagation()"
               class="border border-1 border-black mb-2 d-flex justify-content-center align-items-center icon-container"
             >
-              <i class="fa-regular fa-heart fs-4" style="color: #000714"></i>
-              <ng-template
-                ><i class="fa-solid fa-heart fs-4" style="color: #000714"></i
-              ></ng-template>
+              <i
+                *ngIf="!isFavorite(product)"
+                class="fa-regular fa-heart fs-4"
+                style="color: #01060e"
+              ></i>
+              <i
+                *ngIf="isFavorite(product)"
+                class="fa-solid fa-heart fs-4"
+                style="color: #00040a"
+              ></i>
             </a>
 
             <a

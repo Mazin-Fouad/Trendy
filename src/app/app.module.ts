@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { PaymentInstructionsComponent } from './components/payment-instructions/payment-instructions.component';
+import { SharedService } from './services/apiData/shared.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { PaymentInstructionsComponent } from './components/payment-instructions/
     MatButtonModule,
   ],
 
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

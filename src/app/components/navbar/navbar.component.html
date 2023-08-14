@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <div class="container row me-auto ms-auto p-3">
       <div
-        class="col-md-4 d-flex justify-content-center justify-content-md-start"
+        class="col-md-2 d-flex justify-content-center justify-content-md-start"
       >
         <a class="navbar-brand"
           ><img src="assets/imgs/trendy-logo.png" alt="Logo"
@@ -12,16 +12,16 @@
 
       <!-- Important links -->
       <div
-        class="col-md-4 d-flex flex-column align-items-center flex-sm-row justify-content-sm-center justify-content-md-around"
+        class="col-md-6 d-flex flex-column align-items-center flex-sm-row justify-content-sm-center justify-content-md-start"
       >
         <a
-          class="text-decoration-none fs-5 mt-3 mt-sm-0 letter-spacing"
+          class="text-decoration-none fs-5 mt-3 mt-sm-0 letter-spacing me-0 me-md-4"
           routerLinkActive="active"
           href="#"
           >Home</a
         >
         <a
-          class="text-decoration-none fs-5 mt-3 mt-sm-0 letter-spacing"
+          class="text-decoration-none fs-5 mt-3 mt-sm-0 letter-spacing me-0 me-md-4"
           href="#"
           >Products</a
         >
@@ -33,20 +33,28 @@
       </div>
 
       <!-- Cart and search -->
-      <div
-        class="col-md-4 d-flex flex-column align-items-center flex-sm-row justify-content-sm-around"
-      >
+      <div class="col-md-4 d-flex flex-column flex-sm-row align-items-center">
         <a
-          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 me-2 me-md-0 fs-5 text-black"
+          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 me-0 me-sm-3 fs-5 text-black"
           href="#"
-          ><i class="fa-solid fa-magnifying-glass me-1 p-2"></i>Search</a
-        >
+          ><i class="fa-solid fa-magnifying-glass me-1 p-2"></i
+        ></a>
         <a
-          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black"
+          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black me-0 me-sm-3"
           href="#"
-          ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>Cart
-          <span class="ms-2 fs-6">5 Items in cart</span></a
-        >
+          ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>
+        </a>
+
+        <a
+          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative"
+          ><i class="fa-solid fa-heart p-2" style="color: #000714"></i>
+          <span
+            class="position-absolute fs-4 favorits-count"
+            [ngClass]="{ 'scale-down-bl': animate }"
+            *ngIf="productData.length > 0"
+            >{{ productData.length }}</span
+          >
+        </a>
       </div>
     </div>
   </div>
