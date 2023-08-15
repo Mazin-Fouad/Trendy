@@ -20,6 +20,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { PaymentInstructionsComponent } from './components/payment-instructions/payment-instructions.component';
 import { SharedService } from './services/apiData/shared.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,6 @@ import { SharedService } from './services/apiData/shared.service';
     ProductDetailsComponent,
     PaymentInstructionsComponent,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,9 +48,13 @@ import { SharedService } from './services/apiData/shared.service';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ],
-
   providers: [SharedService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

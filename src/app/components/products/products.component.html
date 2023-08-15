@@ -13,13 +13,19 @@
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a class="dropdown-item" (click)="onCategoryChange('all')">All</a>
+            <a
+              class="dropdown-item cursor-pointer"
+              (click)="onCategoryChange('all')"
+              >All</a
+            >
           </li>
           <ng-container *ngFor="let cat of categoriesList">
             <li *ngIf="cat !== 'electronics'">
-              <a class="dropdown-item" (click)="onCategoryChange(cat)">{{
-                cat | titlecase
-              }}</a>
+              <a
+                class="dropdown-item cursor-pointer"
+                (click)="onCategoryChange(cat)"
+                >{{ cat | titlecase }}</a
+              >
             </li>
           </ng-container>
         </ul>

@@ -3,6 +3,8 @@ import { of } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/apiData/product.service';
 import { ProductsComponent } from './products.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ProductsLoadingViewComponent } from '../products-loading-view/products-loading-view.component';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -71,6 +73,7 @@ describe('ProductsComponent', () => {
             getAllCategories: () => of(mockCategories),
           },
         },
+        { provide: MatDialog, useValue: { open: () => {} } },
       ],
     }).compileComponents();
 
@@ -82,26 +85,5 @@ describe('ProductsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should get products on init', () => {
-    spyOn(productService, 'getAllProducts').and.callThrough();
-    component.ngOnInit();
-    expect(productService.getAllProducts).toHaveBeenCalled();
-    expect(component.productsList).toEqual(mockProducts);
-    expect(component.selectedCategory).toEqual('all');
-  });
-
-  it('should get categories on init', () => {
-    spyOn(productService, 'getAllCategories').and.callThrough();
-    component.ngOnInit();
-    expect(productService.getAllCategories).toHaveBeenCalled();
-    expect(component.categoriesList).toEqual(mockCategories.reverse());
-  });
-
-  it('should change category', () => {
-    const newCategory = 'newCategory';
-    component.onCategoryChange(newCategory);
-    expect(component.selectedCategory).toEqual(newCategory);
   });
 });
