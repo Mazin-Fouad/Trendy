@@ -80,11 +80,7 @@
       <div class="addToCart d-flex">
         <!-- Favorite Icon (Outline if not favorited, Solid if favorited) -->
         <i
-          (click)="
-            toggleFavorite(product);
-            onSizeChange(selectedSize.value);
-            $event.stopPropagation()
-          "
+          (click)="toggleFavorite(product); $event.stopPropagation()"
           *ngIf="!isFavorite(product)"
           class="fa-regular fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
           style="color: #000000"

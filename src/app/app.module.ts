@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { FavoriteItemsComponent } from './components/favorite-items/favorite-items.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     ProductsLoadingViewComponent,
     ProductDetailsComponent,
     PaymentInstructionsComponent,
+    FavoriteItemsComponent,
   ],
   imports: [
     BrowserModule,
