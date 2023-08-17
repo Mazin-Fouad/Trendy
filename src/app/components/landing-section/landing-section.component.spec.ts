@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LandingSectionComponent } from './landing-section.component';
 import { TrendyInfoService } from 'src/app/services/staticData/trendy-info.service';
 import { LandingInfo } from 'src/app/viewModels/landing-info';
@@ -39,6 +39,7 @@ describe('LandingSectionComponent', () => {
         BrandsBoxComponent,
         ProductsComponent,
       ],
+      imports: [MatDialogModule],
       providers: [
         { provide: TrendyInfoService, useValue: mockTrendyInfoService },
       ],

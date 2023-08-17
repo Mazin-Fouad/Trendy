@@ -35,7 +35,7 @@ export class ProductDetailsComponent {
 
   openDialog() {
     this.paymentInstructionsDialog.open(PaymentInstructionsComponent, {
-      width: '800px',
+      width: '600px',
       height: '300px',
     });
   }

@@ -1,0 +1,15 @@
+@import "../../../styles.scss";
+
+section {
+    z-index: 9999;
+    img {
+        height: 150px;
+    }
+}
+
+.custom-line {
+    width: 20dvw !important;
+    height: 3px !important;
+    display: block;
+    margin: 0 auto;
+}

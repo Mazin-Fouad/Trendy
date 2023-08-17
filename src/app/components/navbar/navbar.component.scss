@@ -2,6 +2,7 @@
 
 .navbar {
     background-color: $bg-color-main !important;
+    z-index: 999;
 
     .navbar-brand {
         img {
@@ -42,4 +43,9 @@
         transform: scale(1.5);
         transform-origin: 0% 100%;
     }
+}
+
+.custom-dialog-container {
+    z-index: 1040 !important;
+    position: relative !important;
 }

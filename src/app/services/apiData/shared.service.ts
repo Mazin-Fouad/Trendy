@@ -7,7 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedService {
   favorites: any[] = [];
   private favoritesSubject = new BehaviorSubject<any[]>(this.favorites);
-
   getFavorites$ = this.favoritesSubject.asObservable();
 
   toggleFavorite(product: any) {
