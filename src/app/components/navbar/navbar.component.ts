@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   openDialog() {
     this.dialog.open(FavoriteItemsComponent, {
-      maxWidth: '800px',
+      maxWidth: '700px',
       panelClass: 'custom-dialog-container',
     });
   }

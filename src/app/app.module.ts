@@ -25,6 +25,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FavoriteItemsComponent } from './components/favorite-items/favorite-items.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgDialogAnimationService } from 'ng-dialog-animation';
 
 @NgModule({
   declarations: [
@@ -54,8 +56,9 @@ import { FavoriteItemsComponent } from './components/favorite-items/favorite-ite
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    NoopAnimationsModule,
   ],
-  providers: [SharedService],
+  providers: [SharedService, NgDialogAnimationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

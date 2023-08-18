@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/apiData/product.service';
@@ -21,7 +21,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   isProductFavorite: boolean = false;
 
   constructor(
-    private productService: ProductService,
+    public productService: ProductService,
     public dialog: MatDialog,
     private sharedService: SharedService
   ) {
