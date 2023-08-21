@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   productData: any[] = [];
   animate = false;
   private subscriptions: Subscription[] = [];
+  activeLink: string = '';
 
   constructor(
     private sharedService: SharedService,
@@ -38,6 +39,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.animate = false;
       this.cdRef.detectChanges(); // Trigger change detection to update the view
     }, 500); // Assuming the animation duration is 500ms
+  }
+
+  setActive(link: string) {
+    this.activeLink = link;
   }
 
   openDialog() {

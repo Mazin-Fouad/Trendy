@@ -49,19 +49,3 @@ body {
 .letter-spacing {
     letter-spacing: 3px;
 }
-
-/* Set a fixed height or max-height for the container */
-section {
-    max-height: 800px; /* Adjust this value based on your needs */
-    overflow-y: auto; /* Allow vertical scrolling */
-}
-
-/* Hide scrollbar for Chrome, Safari, and newer versions of Opera */
-section::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for Firefox */
-section {
-    scrollbar-width: none;
-}

@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FavoriteItemsComponent } from './components/favorite-items/favorite-items.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
+import { AuthenticationComponent } from './components/user/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
     ProductDetailsComponent,
     PaymentInstructionsComponent,
     FavoriteItemsComponent,
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
