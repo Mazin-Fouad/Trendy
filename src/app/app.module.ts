@@ -28,6 +28,7 @@ import { FavoriteItemsComponent } from './components/favorite-items/favorite-ite
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { AuthenticationComponent } from './components/user/authentication/authentication.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AuthenticationComponent } from './components/user/authentication/authen
     PaymentInstructionsComponent,
     FavoriteItemsComponent,
     AuthenticationComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

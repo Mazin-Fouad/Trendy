@@ -1,0 +1,53 @@
+<div
+  id="carouselExampleDark"
+  class="carousel carousel-dark slide bg-dark text-white p-5"
+>
+  <div class="carousel-inner">
+    <h1 class="text-center fs-1 fw-bold pb-4 mb-4">About Us</h1>
+    <div
+      *ngFor="let data of aboutUsData; let i = index"
+      class="carousel-item"
+      [ngClass]="{ active: i === 0 }"
+      data-bs-interval="10000"
+    >
+      <div class="d-flex align-items-center w-100 justify-content-evenly">
+        <div>
+          <img class="carousel-img" [src]="data.image" alt="{{ data.title }}" />
+        </div>
+        <div class="text-white w-25">
+          <h2 class="fs-1 pb-3">{{ data.title }}</h2>
+          <p class="fs-6">{{ data.description }}</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="prev"
+    >
+      <i class="fas fa-chevron-left fa-lg text-white"></i>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="next"
+    >
+      <i class="fas fa-chevron-right fa-lg text-white"></i>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="carousel-indicators">
+    <button
+      *ngFor="let data of aboutUsData; let i = index"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      [attr.data-bs-slide-to]="i"
+      [ngClass]="{ active: i === 0 }"
+      [attr.aria-label]="'Slide ' + (i + 1)"
+    ></button>
+  </div>
+</div>
