@@ -3,7 +3,9 @@
 section {
     height: 100dvh;
     .models-img {
+        max-width: 60dvw;
         height: 100dvh;
+        object-fit: cover;
     }
 
     .links-container {
@@ -20,8 +22,8 @@ section {
     }
 
     .logo {
-        height: 75px;
-        right: -13%;
+        height: 5vw;
+        right: -8%;
         top: 35%;
     }
 }

@@ -29,6 +29,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { AuthenticationComponent } from './components/user/authentication/authentication.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { OurServiceComponent } from './components/our-service/our-service.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     FavoriteItemsComponent,
     AuthenticationComponent,
     AboutUsComponent,
+    OurServiceComponent,
   ],
   imports: [
     BrowserModule,
