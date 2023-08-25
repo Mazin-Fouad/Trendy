@@ -31,6 +31,7 @@ import { AuthenticationComponent } from './components/user/authentication/authen
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServiceComponent } from './components/our-service/our-service.component';
 import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down-nav.component';
+import { OurStoresComponent } from './components/our-stores/our-stores.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down
     AboutUsComponent,
     OurServiceComponent,
     ScrollDownNavComponent,
+    OurStoresComponent,
   ],
   imports: [
     BrowserModule,

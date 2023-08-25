@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+section {
+    background-color: $bg-color-antiFlashWhite;
+
+    .branches {
+        button {
+            all: unset;
+            cursor: pointer;
+        }
+    }
+
+    .dynamic-imgs {
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .carousel-indicators {
+        position: static;
+
+        button {
+            background-color: $text-color-black;
+        }
+    }
+
+    h1 {
+        position: relative;
+        letter-spacing: 5px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background-color: $text-color-black;
+            bottom: 5px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+}

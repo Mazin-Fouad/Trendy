@@ -1,0 +1,72 @@
+<section class="pt-5 pb-1">
+  <h1 class="text-center fs-1 fw-bold pb-4 mb-4">Our Stores</h1>
+  <div
+    id="carouselExampleCaptions"
+    class="carousel slide container d-flex align-items-center"
+  >
+    <div class="carousel-inner">
+      <h2 class="w-75 mb-5 fs-5 fw-light">
+        Our fashion stores complete the 360° shopping experience. Only members
+        who are in possession of a Silver, Gold, or Diamond membership card can
+        shop here, which is digitally available to you in the BestSecret app.
+      </h2>
+      <ng-container *ngFor="let store of stores; let idx = index">
+        <div class="carousel-item" [class.active]="idx === 0">
+          <div class="branches mb-5">
+            <button
+              *ngFor="let branch of store.branches; let branchIndex = index"
+              type="button"
+              [class.active]="idx === branchIndex"
+              data-bs-target="#carouselExampleCaptions"
+              [attr.data-bs-slide-to]="branchIndex"
+              [attr.aria-label]="'Slide ' + (branchIndex + 1)"
+              class="me-3"
+            >
+              {{ branch }}
+            </button>
+          </div>
+
+          <div class="location d-flex align-items-center">
+            <i class="fa-solid fa-location-dot fs-3" style="color: #000000"></i>
+            <div class="ms-2">
+              <p class="mb-0">{{ store.street }}</p>
+              <p class="mb-0">{{ store.city }} - {{ store.zipCode }}</p>
+            </div>
+          </div>
+          <p class="mb-0 d-flex align-items-center mt-3">
+            <i class="fa-solid fa-phone me-2 fs-3" style="color: #000000"></i>
+            {{ store.phone }}
+          </p>
+          <p class="d-flex align-items-center">
+            <i
+              class="fa-regular fa-envelope me-2 fs-3"
+              style="color: #000000"
+            ></i>
+            {{ store.email }}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="w-50">
+      <img
+        class="dynamic-imgs"
+        [src]="stores[0].imgs[currentImageIndex]"
+        alt="Dynamic Image"
+        width="500"
+      />
+    </div>
+  </div>
+
+  <div class="carousel-indicators">
+    <button
+      *ngFor="let branch of stores; let branchIndex = index"
+      type="button"
+      [class.active]="currentBranchIndex === branchIndex"
+      data-bs-target="#carouselExampleCaptions"
+      [attr.data-bs-slide-to]="branchIndex"
+      [attr.aria-label]="'Slide ' + (branchIndex + 1)"
+      (click)="currentBranchIndex = branchIndex"
+    ></button>
+  </div>
+</section>
