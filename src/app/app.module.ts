@@ -30,6 +30,7 @@ import { NgDialogAnimationService } from 'ng-dialog-animation';
 import { AuthenticationComponent } from './components/user/authentication/authentication.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServiceComponent } from './components/our-service/our-service.component';
+import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down-nav.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { OurServiceComponent } from './components/our-service/our-service.compon
     AuthenticationComponent,
     AboutUsComponent,
     OurServiceComponent,
+    ScrollDownNavComponent,
   ],
   imports: [
     BrowserModule,
