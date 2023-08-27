@@ -32,6 +32,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { OurServiceComponent } from './components/our-service/our-service.component';
 import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down-nav.component';
 import { OurStoresComponent } from './components/our-stores/our-stores.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { OurStoresComponent } from './components/our-stores/our-stores.component
     OurServiceComponent,
     ScrollDownNavComponent,
     OurStoresComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
