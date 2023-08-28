@@ -10,11 +10,17 @@
       [ngClass]="{ active: i === 0 }"
       data-bs-interval="10000"
     >
-      <div class="d-flex align-items-center w-100 justify-content-evenly">
+      <div
+        class="d-flex flex-column flex-md-row align-items-center w-100 justify-content-evenly"
+      >
         <div>
-          <img class="carousel-img" [src]="data.image" alt="{{ data.title }}" />
+          <img
+            class="carousel-img img-fluid"
+            [src]="data.image"
+            alt="{{ data.title }}"
+          />
         </div>
-        <div class="text-white w-25">
+        <div class="text-white about-us-titels mt-3 mt-md-0">
           <h2 class="fs-1 pb-3">{{ data.title }}</h2>
           <p class="fs-6">{{ data.description }}</p>
         </div>

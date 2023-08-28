@@ -20,7 +20,7 @@
               data-bs-target="#carouselExampleCaptions"
               [attr.data-bs-slide-to]="branchIndex"
               [attr.aria-label]="'Slide ' + (branchIndex + 1)"
-              class="me-3"
+              class="me-3 branch-btn"
             >
               {{ branch }}
             </button>
@@ -50,7 +50,7 @@
 
     <div class="w-50">
       <img
-        class="dynamic-imgs"
+        class="dynamic-imgs img-fluid"
         [src]="stores[0].imgs[currentImageIndex]"
         alt="Dynamic Image"
         width="500"
