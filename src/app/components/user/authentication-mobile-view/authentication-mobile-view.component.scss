@@ -1,0 +1,13 @@
+section {
+    background-image: url("../../../../assets/imgs/model-men.jpg");
+    height: 100dvh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @media (min-width: 1065px) and (max-width: 1199px) {
+        section {
+            background-position: center center !important;
+        }
+    }
+}

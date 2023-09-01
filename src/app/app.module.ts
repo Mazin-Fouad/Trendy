@@ -22,7 +22,7 @@ import { PaymentInstructionsComponent } from './components/payment-instructions/
 import { SharedService } from './services/apiData/shared.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FavoriteItemsComponent } from './components/favorite-items/favorite-items.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +33,7 @@ import { OurServiceComponent } from './components/our-service/our-service.compon
 import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down-nav.component';
 import { OurStoresComponent } from './components/our-stores/our-stores.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AuthenticationMobileViewComponent } from './components/user/authentication-mobile-view/authentication-mobile-view.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ScrollDownNavComponent,
     OurStoresComponent,
     FooterComponent,
+    AuthenticationMobileViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     MatInputModule,
     NoopAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [SharedService, NgDialogAnimationService],
   bootstrap: [AppComponent],

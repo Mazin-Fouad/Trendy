@@ -1,4 +1,7 @@
-<app-scroll-down-nav></app-scroll-down-nav>
+<app-scroll-down-nav class="d-none d-md-flex"></app-scroll-down-nav>
+<app-authentication-mobile-view
+  class="d-xl-none"
+></app-authentication-mobile-view>
 <div class="auth-page d-none d-xl-block">
   <section class="container-fluid">
     <div class="row">
@@ -8,12 +11,8 @@
           src="assets/imgs/auth-img.jpg"
           alt="models"
         />
-        <img
-          class="logo position-absolute"
-          src="assets/imgs/trendy-logo.png"
-          alt="Trendy Logo"
-        />
       </div>
+
       <div class="col-md-5 mt-2 mb-5">
         <div class="links-container d-flex justify-content-around">
           <a class="text-nowrap" href="#">Login</a>
@@ -21,7 +20,119 @@
           <a class="text-nowrap" href="#">About us</a>
           <a class="text-nowrap" href="">Our Stores</a>
         </div>
-        <h1 class="text-center fs-3 fw-bolder letter-spacing mt-5">TRENDY</h1>
+
+        <div class="d-flex justify-content-center mt-5">
+          <img
+            class="logo-auth"
+            src="assets/imgs/trendy-logo.png"
+            alt="Trendy Logo"
+          />
+        </div>
+
+        <form
+          [formGroup]="registrationForm"
+          (ngSubmit)="register()"
+          class="ms-auto me-auto mt-5"
+          style="width: 85%"
+        >
+          <h1 class="fs-3 text-center mb-5">Sign up</h1>
+          <div class="row">
+            <div class="col-md-4">
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                placeholder="E-Mail"
+                formControlName="email"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputUsername"
+                placeholder="User"
+                formControlName="userName"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputFirstName"
+                placeholder="First Name"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputLastName"
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-2" formGroupName="address">
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                id="inputStreet"
+                placeholder="Street"
+                formControlName="street"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputNr"
+                placeholder="Nr."
+                formControlName="streetNumber"
+              />
+            </div>
+            <div class="col-md-4 mt-2">
+              <input
+                type="text"
+                class="form-control"
+                id="inputZipCode"
+                placeholder="ZIP code"
+                formControlName="zipCode"
+              />
+            </div>
+            <div class="col-md-8 mt-2">
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                placeholder="City"
+                formControlName="city"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!registrationForm.valid"
+          >
+            Register
+          </button>
+        </form>
       </div>
     </div>
   </section>
