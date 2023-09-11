@@ -7,7 +7,7 @@ import { LandingSectionComponent } from './components/landing-section/landing-se
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrandsBoxComponent } from './components/brands-box/brands-box.component';
 import { ProductsComponent } from './components/products/products.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { StarRatingModule } from 'angular-star-rating';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,7 @@ import { ScrollDownNavComponent } from './components/scroll-down-nav/scroll-down
 import { OurStoresComponent } from './components/our-stores/our-stores.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthenticationMobileViewComponent } from './components/user/authentication-mobile-view/authentication-mobile-view.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,16 @@ import { AuthenticationMobileViewComponent } from './components/user/authenticat
     NoopAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [SharedService, NgDialogAnimationService],
+
+  providers: [
+    SharedService,
+    NgDialogAnimationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

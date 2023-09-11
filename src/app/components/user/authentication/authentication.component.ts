@@ -8,7 +8,12 @@ import { AuthService } from 'src/app/services/user/auth.service';
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent implements OnInit {
+  isUserRegistered: boolean = false;
   registrationForm: FormGroup;
+  loginForm: FormGroup;
+  showLoginForm: boolean = true;
+  username!: string;
+  password!: string;
 
   constructor(private authService: AuthService, private fb: FormBuilder) {
     this.registrationForm = this.fb.group({
@@ -24,17 +29,40 @@ export class AuthenticationComponent implements OnInit {
         city: ['', Validators.required],
       }),
     });
+
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {}
 
-  register() {
-    if (this.registrationForm.valid) {
-      this.authService
-        .registerUser(this.registrationForm.value)
-        .subscribe((response) => {
-          console.log(response);
-        });
+  showRegistrationForm() {
+    this.showLoginForm = false;
+  }
+
+  viewLoginForm() {
+    this.showLoginForm = true;
+  }
+
+  registerSubmit() {
+    this.authService
+      .signUp(this.registrationForm.value)
+      .subscribe((response) => {
+        console.log(response);
+      });
+
+    this.isUserRegistered = true;
+  }
+
+  loginSubmit() {
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+
+      this.authService.login(loginData).subscribe((response) => {
+        console.log(response);
+      });
     }
   }
 }
