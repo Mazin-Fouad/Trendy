@@ -8,11 +8,30 @@
     </div>
 
     <div class="d-flex justify-content-evenly w-50">
-      <a HighlightOnClick href="#">Login</a>
-      <a HighlightOnClick href="#">Sign up</a>
-      <a HighlightOnClick href="#about">About us</a>
-      <a HighlightOnClick href="#stores">Our Stores</a>
-      <a HighlightOnClick href="#services">Our Stores</a>
+      <a HighlightOnClick class="text-nowrap" (click)="viewLoginForm()"
+        >Login</a
+      >
+      <a HighlightOnClick class="text-nowrap" (click)="showRegistrationForm()"
+        >Sign up</a
+      >
+      <a
+        HighlightOnClick
+        class="text-nowrap"
+        (click)="scrollTo('about'); $event.preventDefault()"
+        >About us</a
+      >
+      <a
+        HighlightOnClick
+        class="text-nowrap"
+        (click)="scrollTo('stores'); $event.preventDefault()"
+        >Our Stores</a
+      >
+      <a
+        HighlightOnClick
+        class="text-nowrap"
+        (click)="scrollTo('services'); $event.preventDefault()"
+        >Services</a
+      >
     </div>
   </div>
 </nav>

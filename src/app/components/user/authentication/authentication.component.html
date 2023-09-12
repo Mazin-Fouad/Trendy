@@ -1,7 +1,13 @@
-<app-scroll-down-nav class="d-none d-md-flex"></app-scroll-down-nav>
+<app-scroll-down-nav
+  class="d-none d-md-flex"
+  (showLogin)="viewLoginForm()"
+  (showRegister)="showRegistrationForm()"
+></app-scroll-down-nav>
+
 <app-authentication-mobile-view
   class="d-xl-none"
 ></app-authentication-mobile-view>
+
 <div class="auth-page d-none d-xl-block">
   <section class="container-fluid">
     <div class="row">
@@ -24,9 +30,24 @@
             (click)="showRegistrationForm()"
             >Sign up</a
           >
-          <a HighlightOnClick class="text-nowrap" href="#about">About us</a>
-          <a HighlightOnClick class="text-nowrap" href="#stores">Our Stores</a>
-          <a HighlightOnClick class="text-nowrap" href="#services">Services</a>
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('about'); $event.preventDefault()"
+            >About us</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('stores'); $event.preventDefault()"
+            >Our Stores</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('services'); $event.preventDefault()"
+            >Services</a
+          >
         </div>
 
         <div class="d-flex justify-content-center mt-5">
@@ -212,4 +233,5 @@
 <div id="services">
   <app-our-service></app-our-service>
 </div>
+
 <app-footer></app-footer>

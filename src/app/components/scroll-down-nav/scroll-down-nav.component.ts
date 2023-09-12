@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-down-nav',
@@ -6,6 +6,9 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./scroll-down-nav.component.scss'],
 })
 export class ScrollDownNavComponent {
+  @Output() showLogin = new EventEmitter<void>();
+  @Output() showRegister = new EventEmitter<void>();
+
   isShiny: boolean = false;
 
   @HostListener('window:scroll', [])
@@ -16,5 +19,20 @@ export class ScrollDownNavComponent {
 
   private getScrollPosition(): number {
     return document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+
+  scrollTo(elementId: string): void {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  showRegistrationForm() {
+    this.showRegister.emit();
+  }
+
+  viewLoginForm() {
+    this.showLogin.emit();
   }
 }
