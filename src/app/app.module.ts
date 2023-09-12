@@ -36,6 +36,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthenticationMobileViewComponent } from './components/user/authentication-mobile-view/authentication-mobile-view.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HighlightOnClickDirective } from './directives/highlight-on-click.directive';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FooterComponent,
     AuthenticationMobileViewComponent,
     NotFoundComponent,
+    HighlightOnClickDirective,
   ],
   imports: [
     BrowserModule,
