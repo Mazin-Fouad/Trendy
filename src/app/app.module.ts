@@ -35,6 +35,7 @@ import { OurStoresComponent } from './components/our-stores/our-stores.component
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthenticationMobileViewComponent } from './components/user/authentication-mobile-view/authentication-mobile-view.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     OurStoresComponent,
     FooterComponent,
     AuthenticationMobileViewComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
