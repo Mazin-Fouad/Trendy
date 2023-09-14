@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/user/auth.service';
 
 @Component({
@@ -15,7 +16,11 @@ export class AuthenticationComponent implements OnInit {
   username!: string;
   password!: string;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.registrationForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -36,7 +41,16 @@ export class AuthenticationComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.navigateIfTokenExists();
+  }
+
+  navigateIfTokenExists() {
+    const token = this.authService.getToken();
+    if (token) {
+      this.router.navigate(['/main']);
+    }
+  }
 
   showRegistrationForm() {
     this.showLoginForm = false;
@@ -64,6 +78,7 @@ export class AuthenticationComponent implements OnInit {
         console.log(response);
       });
     }
+    this.router.navigate(['/main']);
   }
 
   scrollTo(elementId: string): void {

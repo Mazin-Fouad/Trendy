@@ -8,10 +8,16 @@
     </div>
 
     <div class="d-flex justify-content-evenly w-50">
-      <a HighlightOnClick class="text-nowrap" (click)="viewLoginForm()"
+      <a
+        HighlightOnClick
+        class="text-nowrap"
+        (click)="viewLoginForm(); scrollToTop()"
         >Login</a
       >
-      <a HighlightOnClick class="text-nowrap" (click)="showRegistrationForm()"
+      <a
+        HighlightOnClick
+        class="text-nowrap"
+        (click)="showRegistrationForm(); scrollToTop()"
         >Sign up</a
       >
       <a

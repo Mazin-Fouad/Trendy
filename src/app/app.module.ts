@@ -37,6 +37,7 @@ import { AuthenticationMobileViewComponent } from './components/user/authenticat
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HighlightOnClickDirective } from './directives/highlight-on-click.directive';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { HighlightOnClickDirective } from './directives/highlight-on-click.direc
     AuthenticationMobileViewComponent,
     NotFoundComponent,
     HighlightOnClickDirective,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
