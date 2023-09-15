@@ -1,1 +1,161 @@
-<section></section>
+<section>
+  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+    <div
+      class="bg-dark p-5 d-flex flex-column justify-content-center align-items-center w-100"
+    >
+      <a class="text-nowrap text-white fs-5" (click)="scrollToTop()">Login</a>
+      <a class="text-nowrap mt-4 text-white fs-5" (click)="scrollToTop()"
+        >Sign up</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('about'); $event.preventDefault()"
+        >About us</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('stores'); $event.preventDefault()"
+        >Our Stores</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('services'); $event.preventDefault()"
+        >Services</a
+      >
+    </div>
+  </div>
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="logo-container pt-5 d-flex justify-content-center">
+    <img
+      class="img-fluid"
+      src="assets/imgs/trendy-logo-removebg.png"
+      alt="trendy-logo"
+    />
+  </div>
+
+  <form
+    (ngSubmit)="registerSubmit()"
+    [formGroup]="registrationForm"
+    class="ms-auto me-auto d-flex flex-column justify-content-center"
+    style="width: 85%"
+  >
+    <h1 class="fs-2 fw-bold text-center text-white">Sign up</h1>
+    <div class="row ps-5 pe-5">
+      <div class="col-md-12">
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="E-Mail"
+          formControlName="email"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputUsername"
+          placeholder="User"
+          formControlName="userName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4 ps-5 pe-5">
+      <div class="col-md-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          placeholder="First Name"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          placeholder="Last Name"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4 ps-5 pe-5" formGroupName="address">
+      <div class="col-md-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputStreet"
+          placeholder="Street"
+          formControlName="street"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputNr"
+          placeholder="Nr."
+          formControlName="streetNumber"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputZipCode"
+          placeholder="ZIP code"
+          formControlName="zipCode"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputCity"
+          placeholder="City"
+          formControlName="city"
+        />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3" style="width: 100%">
+      <button
+        type="submit"
+        class="btn btn-dark w-50 text-uppercase rounded-0"
+        [disabled]="!registrationForm.valid"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</section>
+
+<!-- *ngIf="!isUserRegistered && !showLoginForm" zeile 2 -->

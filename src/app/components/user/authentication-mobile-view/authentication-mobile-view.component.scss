@@ -4,10 +4,37 @@ section {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../../../../assets/imgs/model-men.jpg");
 
     @media (min-width: 1065px) and (max-width: 1199px) {
         section {
             background-position: center center !important;
+        }
+    }
+
+    form {
+        height: 80%;
+
+        input.form-control {
+            box-shadow: none !important;
+            outline: 0;
+        }
+
+        input.form-control:focus {
+            border: 2px solid black !important;
+        }
+
+        input::placeholder {
+            letter-spacing: 2px;
+        }
+    }
+
+    .logo-container {
+        width: 100%;
+
+        img {
+            height: 60px;
         }
     }
 }
