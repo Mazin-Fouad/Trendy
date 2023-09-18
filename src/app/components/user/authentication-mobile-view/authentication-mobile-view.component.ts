@@ -9,8 +9,9 @@ import { AuthService } from 'src/app/services/user/auth.service';
   styleUrls: ['./authentication-mobile-view.component.scss'],
 })
 export class AuthenticationMobileViewComponent {
-  isUserRegistered: boolean = false;
+  isUserRegistered: boolean = true;
   registrationForm: FormGroup;
+  loginForm: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -30,6 +31,11 @@ export class AuthenticationMobileViewComponent {
         city: ['', Validators.required],
       }),
     });
+
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   registerSubmit() {
@@ -40,6 +46,17 @@ export class AuthenticationMobileViewComponent {
       });
 
     this.isUserRegistered = true;
+  }
+
+  loginSubmit() {
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+
+      this.authService.login(loginData).subscribe((response) => {
+        console.log(response);
+      });
+    }
+    this.router.navigate(['/main']);
   }
 
   @HostListener('window:scroll', [])
@@ -60,5 +77,13 @@ export class AuthenticationMobileViewComponent {
       left: 0,
       behavior: 'smooth',
     });
+  }
+
+  userIsAuthenticated() {
+    this.isUserRegistered = false;
+  }
+
+  userNotAuthenticated() {
+    this.isUserRegistered = true;
   }
 }

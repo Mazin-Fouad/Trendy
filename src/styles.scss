@@ -52,3 +52,16 @@ body {
 .letter-spacing {
     letter-spacing: 20px;
 }
+
+input.form-control {
+    box-shadow: none !important;
+    outline: 0;
+}
+
+input.form-control:focus {
+    border: 2px solid black !important;
+}
+
+input::placeholder {
+    letter-spacing: 2px;
+}

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators'; // Import tap operator
+import { tap } from 'rxjs/operators';
 import { UserRegistrationForm } from 'src/app/models/user-registration-form';
-
 import { environment } from 'src/environments/environment.development';
 import { UserLogin } from 'src/app/models/user-login';
 
