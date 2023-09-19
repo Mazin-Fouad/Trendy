@@ -4,10 +4,10 @@
     class="footer-links d-flex flex-column flex-sm-row justify-content-center align-items-center mb-3"
   >
     <a href="">Login</a>
-    <a class="ms-sm-4" href="">Cookie settings</a>
-    <a class="ms-sm-4" href="">Imprint</a>
-    <a class="ms-sm-4" href="">Terms and Conditions</a>
-    <a class="ms-sm-4" href=""> Privacy Policy </a>
+    <a class="ms-sm-4" (click)="openDialog()">Cookie settings</a>
+    <a class="ms-sm-4" routerLink="/imprint">Imprint</a>
+    <a class="ms-sm-4" routerLink="/terms">Terms and Conditions</a>
+    <a class="ms-sm-4" routerLink="/data_protection"> Privacy Policy </a>
   </div>
 
   <div

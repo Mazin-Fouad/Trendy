@@ -38,6 +38,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HighlightOnClickDirective } from './directives/highlight-on-click.directive';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { PrivatPolicyComponent } from './components/privat-policy/privat-policy.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
+import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +64,10 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
     NotFoundComponent,
     HighlightOnClickDirective,
     MainLayoutComponent,
+    PrivatPolicyComponent,
+    TermsComponent,
+    ImprintComponent,
+    CookiesSettingsComponent,
   ],
   imports: [
     BrowserModule,
