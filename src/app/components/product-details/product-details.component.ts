@@ -9,6 +9,8 @@ import { Product } from 'src/app/models/product';
 import { PaymentInstructionsComponent } from '../payment-instructions/payment-instructions.component';
 import { SharedService } from 'src/app/services/apiData/shared.service';
 import { SizeService } from 'src/app/services/staticData/size.service';
+import { CartService } from 'src/app/services/apiData/cart.service';
+import { AuthService } from 'src/app/services/user/auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -24,7 +26,9 @@ export class ProductDetailsComponent {
     @Inject(MAT_DIALOG_DATA) public data: Product,
     public paymentInstructionsDialog: MatDialog,
     private sharedService: SharedService,
-    private sizeService: SizeService
+    private sizeService: SizeService,
+    private authService: AuthService,
+    private cartService: CartService
   ) {
     this.product = data;
   }
@@ -50,16 +54,17 @@ export class ProductDetailsComponent {
     );
   }
 
-  // onSizeChange(size: any): void {
-  //   const newSize = size;
+  addToCart(): void {
+    const userId = this.authService.getUserId();
+    if (!userId) {
+      console.error('User ID not found');
+      return;
+    }
+    const date = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+    const products = [{ productId: this.product.id, quantity: 1 }]; // Assuming adding 1 product for simplicity
 
-  //   // Check if the size is already selected
-  //   if (this.sizeService.getSelectedSize() === newSize) {
-  //     // If it is, remove the size
-  //     this.sizeService.removeSelectedSize();
-  //   } else {
-  //     // Otherwise, set the new size
-  //     this.sizeService.setSelectedSize(newSize);
-  //   }
-  // }
+    this.cartService.addToCart(userId, date, products).subscribe((response) => {
+      console.log(response);
+    });
+  }
 }

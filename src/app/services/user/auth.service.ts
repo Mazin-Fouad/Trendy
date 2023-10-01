@@ -12,24 +12,44 @@ import { UserLogin } from 'src/app/models/user-login';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  // signUp(data: UserRegistrationForm): Observable<UserRegistrationForm> {
+  //   return this.http.post<UserRegistrationForm>(
+  //     environment.baseUrl + '/users',
+  //     data
+  //   );
+  // }
+
   signUp(data: UserRegistrationForm): Observable<UserRegistrationForm> {
-    return this.http.post<UserRegistrationForm>(
-      environment.baseUrl + '/users',
-      data
-    );
+    return this.http
+      .post<UserRegistrationForm>(environment.baseUrl + '/users', data)
+      .pipe(
+        tap((response: any) => {
+          if (response.id) {
+            this.setUserId(response.id);
+          }
+        })
+      );
   }
 
   login(data: UserLogin): Observable<any> {
     return this.http
       .post(environment.baseUrl + '/auth/login', JSON.stringify(data))
       .pipe(
-        // After a successful login, save the token to local storage.
         tap((response: any) => {
           if (response && response.token) {
             this.setToken(response.token);
           }
         })
       );
+  }
+
+  setUserId(userId: number): void {
+    localStorage.setItem('userId', userId.toString());
+  }
+
+  getUserId(): number | null {
+    const userId = localStorage.getItem('userId');
+    return userId ? Number(userId) : null;
   }
 
   // Helper methods to handle token in local storage.
