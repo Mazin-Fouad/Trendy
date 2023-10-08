@@ -11,6 +11,7 @@ import { SharedService } from 'src/app/services/apiData/shared.service';
 import { SizeService } from 'src/app/services/staticData/size.service';
 import { CartService } from 'src/app/services/apiData/cart.service';
 import { AuthService } from 'src/app/services/user/auth.service';
+import { UserCart } from 'src/app/models/user-cart';
 
 @Component({
   selector: 'app-product-details',
@@ -20,6 +21,7 @@ import { AuthService } from 'src/app/services/user/auth.service';
 export class ProductDetailsComponent {
   product: Product = {} as Product;
   selectedSize: string = '';
+  itemsInCart: any[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<ProductsComponent>,
@@ -54,17 +56,39 @@ export class ProductDetailsComponent {
     );
   }
 
+  // addToCart(): void {
+  //   const userId = this.authService.getUserId();
+  //   const date = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+  //   const products = [{ product: this.product.id, quantity: 1 }]; // Assuming adding 1 product for simplicity
+
+  //   this.cartService
+  //     .addToCart(userId!, date, products)
+  //     .subscribe((response) => {
+  //       console.log(response);
+  //       this.itemsInCart.push(...response.products);
+  //       this.sharedService.updateItemsInCart(this.itemsInCart);
+  //     });
+  // }
+
   addToCart(): void {
     const userId = this.authService.getUserId();
-    if (!userId) {
-      console.error('User ID not found');
-      return;
-    }
-    const date = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
-    const products = [{ productId: this.product.id, quantity: 1 }]; // Assuming adding 1 product for simplicity
+    const date = new Date().toISOString().split('T')[0];
 
-    this.cartService.addToCart(userId, date, products).subscribe((response) => {
-      console.log(response);
-    });
+    const existingProduct = this.itemsInCart.find(
+      (item) => item.product === this.product.id
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1; // Increment the quantity if product exists
+    } else {
+      this.itemsInCart.push({ product: this.product.id, quantity: 1 });
+    }
+
+    this.cartService
+      .addToCart(userId!, date, this.itemsInCart)
+      .subscribe((response) => {
+        console.log(response);
+        this.sharedService.updateItemsInCart(this.itemsInCart); // Update using SharedService
+      });
   }
 }

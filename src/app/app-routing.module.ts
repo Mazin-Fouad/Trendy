@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { PrivatPolicyComponent } from './components/privat-policy/privat-policy.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'main', component: MainLayoutComponent },
   { path: 'data_protection', component: PrivatPolicyComponent },
   { path: 'imprint', component: ImprintComponent },
+  { path: 'cart', component: CartComponent },
 
   { path: 'terms', component: TermsComponent },
 

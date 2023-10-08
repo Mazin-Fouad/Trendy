@@ -9,6 +9,9 @@ export class SharedService {
   private favoritesSubject = new BehaviorSubject<any[]>(this.favorites);
   getFavorites$ = this.favoritesSubject.asObservable();
 
+  private itemsInCartSubject = new BehaviorSubject<any[]>([]);
+  itemsInCart$ = this.itemsInCartSubject.asObservable();
+
   toggleFavorite(product: any) {
     const productIndex = this.favorites.findIndex((f) => f.id === product.id);
     if (productIndex > -1) {
@@ -21,5 +24,13 @@ export class SharedService {
 
   isFavorite(product: any): boolean {
     return this.favorites.some((f) => f.id === product.id);
+  }
+
+  updateItemsInCart(newItems: any[]): void {
+    const currentItems = this.itemsInCartSubject.value;
+    // merge currentItems and newItems appropriately here
+    // For simplicity, I'm just using concat. Adjust as needed.
+    const updatedItems = currentItems.concat(newItems);
+    this.itemsInCartSubject.next(updatedItems);
   }
 }
