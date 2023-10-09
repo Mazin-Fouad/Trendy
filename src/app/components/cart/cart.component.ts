@@ -67,4 +67,25 @@ export class CartComponent implements OnInit {
 
     console.log(this.itemsInCart);
   }
+
+  increaseQuantity(item: any): void {
+    const index = this.itemsInCart.indexOf(item);
+    if (index !== -1) {
+      this.itemsInCart[index].quantity += 1;
+    }
+  }
+
+  decreaseQuantity(item: any): void {
+    const index = this.itemsInCart.indexOf(item);
+    if (index !== -1 && this.itemsInCart[index].quantity > 0) {
+      this.itemsInCart[index].quantity -= 1;
+    }
+  }
+
+  deleteItem(item: any): void {
+    const index = this.itemsInCart.indexOf(item);
+    if (index !== -1) {
+      this.itemsInCart.splice(index, 1);
+    }
+  }
 }

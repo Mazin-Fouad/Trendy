@@ -43,6 +43,7 @@ import { TermsComponent } from './components/terms/terms.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 import { CartComponent } from './components/cart/cart.component';
+import { BillComponent } from './components/bill/bill.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { CartComponent } from './components/cart/cart.component';
     ImprintComponent,
     CookiesSettingsComponent,
     CartComponent,
+    BillComponent,
   ],
   imports: [
     BrowserModule,

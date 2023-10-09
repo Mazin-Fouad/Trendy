@@ -17,7 +17,7 @@
     <span>Shipping time: 2-5 business days</span>
 
     <div class="row mt-3">
-      <div class="col-md-8 w-50">
+      <div class="col-md-8">
         <div
           class="cart-items p-3 d-flex flex-column align-items-start justify-content-between flex-md-row justify-content-md-between align-items-md-center border-bottom"
           *ngFor="let item of itemsInCart"
@@ -26,20 +26,26 @@
           <p class="w-25">{{ item.title }}</p>
           <p>[Size logic to be added]</p>
           <div class="d-flex quantity">
-            <span><i class="fa-solid fa-plus" style="color: #000000"></i></span>
-            <span class="ms-1 me-1">{{ item.quantity }}</span>
+            <span (click)="increaseQuantity(item)"
+              ><i class="fa-solid fa-plus" style="color: #000000"></i
+            ></span>
+            <span class="mx-2">{{ item.quantity }}</span>
             <span
+              *ngIf="item.quantity > 1; else deleteIcon"
+              (click)="decreaseQuantity(item)"
               ><i class="fa-solid fa-minus" style="color: #000000"></i
             ></span>
+            <ng-template #deleteIcon>
+              <span (click)="deleteItem(item)"
+                ><i class="fa-regular fa-trash-can" style="color: #000000"></i
+              ></span>
+            </ng-template>
           </div>
           <p>{{ item.price | currency : "EUR" }}</p>
         </div>
       </div>
-      <div class="col-md-4 ms-auto alert alert-warning">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam ab,
-        facilis esse maiores corporis adipisci! Saepe, accusamus ducimus,
-        voluptatibus dolore fugiat nisi magnam et voluptatem enim, repellendus
-        debitis porro in.
+      <div class="col-md-4 ms-auto">
+        <app-bill [itemsInCart]="itemsInCart"></app-bill>
       </div>
     </div>
   </div>
