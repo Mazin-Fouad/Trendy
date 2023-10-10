@@ -1,6 +1,6 @@
-<div class="alert alert-warning" style="min-height: 300px">
+<div class="alert" style="min-height: 300px">
   <div>
-    <h1 class="text-center text-black-50 fs-2 mt-3">Order Summary</h1>
+    <h1 class="text-center fs-2 mt-3">Order Summary</h1>
 
     <p class="text-center fw-bold mt-4 text-danger saved-amount">
       You save:
@@ -8,7 +8,7 @@
     </p>
 
     <div class="d-flex justify-content-between mt-4">
-      <span> Regular: </span>
+      <span> Regular*: </span>
       <span>{{ calculateTotal() | currency : "EUR" }}</span>
     </div>
 
@@ -30,3 +30,7 @@
     </h1>
   </div>
 </div>
+
+<p class="bill-note">
+  * This amount is the sum of the RRPs of the products in the shopping cart.
+</p>

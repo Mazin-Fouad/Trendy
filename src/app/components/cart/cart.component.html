@@ -17,34 +17,39 @@
     <span>Shipping time: 2-5 business days</span>
 
     <div class="row mt-3">
-      <div class="col-md-8">
+      <div class="col-xl-7">
         <div
-          class="cart-items p-3 d-flex flex-column align-items-start justify-content-between flex-md-row justify-content-md-between align-items-md-center border-bottom"
+          class="cart-items p-3 d-flex flex-column align-items-center justify-content-center flex-md-row justify-content-md-between align-items-md-center border-bottom"
           *ngFor="let item of itemsInCart"
         >
           <img [src]="item.image" alt="item-pic" />
           <p class="w-25">{{ item.title }}</p>
           <p>[Size logic to be added]</p>
-          <div class="d-flex quantity">
-            <span (click)="increaseQuantity(item)"
+
+          <div
+            class="d-flex justify-content-center align-items-center quantity w-25"
+          >
+            <span class="icon-container" (click)="increaseQuantity(item)"
               ><i class="fa-solid fa-plus" style="color: #000000"></i
             ></span>
             <span class="mx-2">{{ item.quantity }}</span>
             <span
+              class="icon-container"
               *ngIf="item.quantity > 1; else deleteIcon"
               (click)="decreaseQuantity(item)"
               ><i class="fa-solid fa-minus" style="color: #000000"></i
             ></span>
             <ng-template #deleteIcon>
-              <span (click)="deleteItem(item)"
+              <span class="icon-container" (click)="deleteItem(item)"
                 ><i class="fa-regular fa-trash-can" style="color: #000000"></i
               ></span>
             </ng-template>
           </div>
-          <p>{{ item.price | currency : "EUR" }}</p>
+
+          <p class="fs-4 mt-2">{{ item.price | currency : "EUR" }}</p>
         </div>
       </div>
-      <div class="col-md-4 ms-auto">
+      <div class="col-xl-4 ms-auto">
         <app-bill [itemsInCart]="itemsInCart"></app-bill>
       </div>
     </div>
