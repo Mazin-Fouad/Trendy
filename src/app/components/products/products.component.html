@@ -38,7 +38,7 @@
         *ngFor="let product of productsList; let i = index; trackBy: trackById"
       >
         <div
-          class="productCard col-md-3 mb-5 position-relative"
+          class="productCard col-md-4 mb-5 position-relative"
           *ngIf="
             (selectedCategory === 'all' ||
               product.category === selectedCategory) &&

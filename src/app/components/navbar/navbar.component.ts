@@ -19,6 +19,7 @@ import { Subscription } from 'rxjs';
 export class NavbarComponent implements OnInit, OnDestroy {
   productData: any[] = [];
   animate = false;
+  animateCart = false;
   private subscriptions: Subscription[] = [];
   activeLink: string = '';
   @ViewChild('productsSection', { read: ElementRef })
@@ -41,7 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     let cartSubscribe: Subscription = this.sharedService.itemsInCart$.subscribe(
       (data: any) => {
         this.itemsInCart = data;
-        this.triggerAnimation();
+        this.triggerCartAnimation();
         this.subscriptions.push(cartSubscribe);
       }
     );
@@ -54,6 +55,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
     // Adjust the timeout duration to match your animation's duration
     setTimeout(() => {
       this.animate = false;
+      this.cdRef.detectChanges(); // Trigger change detection to update the view
+    }, 500); // Assuming the animation duration is 500ms
+  }
+
+  triggerCartAnimation() {
+    this.animateCart = true;
+
+    // Reset the animation state after a short delay
+    // Adjust the timeout duration to match your animation's duration
+    setTimeout(() => {
+      this.animateCart = false;
       this.cdRef.detectChanges(); // Trigger change detection to update the view
     }, 500); // Assuming the animation duration is 500ms
   }
