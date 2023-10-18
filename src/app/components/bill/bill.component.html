@@ -8,24 +8,27 @@
     </p>
 
     <div class="d-flex justify-content-between mt-4">
-      <span> Regular*: </span>
-      <span>{{ calculateTotal() | currency : "EUR" }}</span>
+      <span class="fs-5 mb-2"> Regular*: </span>
+      <span class="fs-5">{{ calculateTotal() | currency : "EUR" }}</span>
     </div>
 
     <div class="d-flex justify-content-between">
-      <span>Shipping:</span>
+      <span class="fs-5 mb-2">Shipping:</span>
       <span class="fw-bold">
-        <i class="fa-solid fa-circle-check" style="color: #257e34"></i> Free
+        <i class="fa-solid fa-circle-check fs-5" style="color: #257e34"></i>
+        Free
       </span>
     </div>
 
     <div class="d-flex justify-content-between">
-      <span> Discounted Total:</span>
-      <span>{{ calculateDiscountedTotal() | currency : "EUR" }}</span>
+      <span class="fs-5"> Discounted Total:</span>
+      <span class="fs-5">{{
+        calculateDiscountedTotal() | currency : "EUR"
+      }}</span>
     </div>
 
     <p class="text-center mt-5 fs-6">Total price including VAT:</p>
-    <h1 class="text-center total-amount">
+    <h1 class="text-center total-amount fs-1">
       {{ calculateDiscountedTotal() | currency : "EUR" }}
     </h1>
   </div>

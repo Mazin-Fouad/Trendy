@@ -1,4 +1,11 @@
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from 'src/app/services/apiData/shared.service';
 import { FavoriteItemsComponent } from '../favorite-items/favorite-items.component';
@@ -14,7 +21,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   animate = false;
   private subscriptions: Subscription[] = [];
   activeLink: string = '';
-
+  @ViewChild('productsSection', { read: ElementRef })
+  productsSection!: ElementRef;
+  itemsInCart: any[] = [];
   constructor(
     private sharedService: SharedService,
     private cdRef: ChangeDetectorRef,
@@ -28,6 +37,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.triggerAnimation();
         this.subscriptions.push(favoriteSubscribe);
       });
+
+    let cartSubscribe: Subscription = this.sharedService.itemsInCart$.subscribe(
+      (data: any) => {
+        this.itemsInCart = data;
+        this.triggerAnimation();
+        this.subscriptions.push(cartSubscribe);
+      }
+    );
   }
 
   triggerAnimation() {
@@ -54,5 +71,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
+  }
+
+  scrollToProducts(): void {
+    const productsElement = document.getElementById('productsSection');
+    if (productsElement) {
+      productsElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToNav(): void {
+    const navElement = document.getElementById('navbar');
+    if (navElement) {
+      navElement.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

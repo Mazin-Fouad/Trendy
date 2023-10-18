@@ -15,15 +15,24 @@
         class="col-md-6 d-flex flex-column align-items-center flex-sm-row justify-content-sm-center justify-content-md-center main-nav-links"
       >
         <a
-          class="text-decoration-none fs-5 mt-3 mt-sm-0 me-0 me-md-4"
+          class="text-decoration-none fs-5 mt-3 mt-sm-0 me-0 me-md-4 p-1"
           routerLinkActive="active"
-          href="#"
+          [class.active]="activeLink === 'Home'"
+          (click)="setActive('Home'); scrollToNav()"
           >Home</a
         >
-        <a class="text-decoration-none fs-5 mt-3 mt-sm-0 me-0 me-md-4" href="#"
+        <a
+          class="text-decoration-none fs-5 mt-3 mt-sm-0 me-0 me-md-4 p-1"
+          [class.active]="activeLink === 'Products'"
+          (click)="setActive('Products'); scrollToProducts()"
           >Products</a
         >
-        <a class="text-decoration-none fs-5 mt-3 mt-sm-0" href="#">Contact</a>
+        <a
+          class="text-decoration-none fs-5 mt-3 mt-sm-0 p-1"
+          [class.active]="activeLink === 'Contact'"
+          (click)="setActive('Contact')"
+          >Contact</a
+        >
       </div>
 
       <!-- Cart and search -->
@@ -36,9 +45,15 @@
           ><i class="fa-solid fa-magnifying-glass me-1 p-2"></i
         ></a>
         <a
-          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black me-0 me-sm-3"
+          class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black me-0 me-sm-3"
           routerLink="/cart"
           ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>
+          <span
+            class="position-absolute fs-4 favorits-count"
+            [ngClass]="{ 'scale-down-bl': animate }"
+            *ngIf="itemsInCart.length > 0"
+            >{{ itemsInCart.length }}</span
+          >
         </a>
 
         <a

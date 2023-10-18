@@ -2,6 +2,7 @@
 
 .navbar {
     background-color: $bg-color-main !important;
+
     z-index: 999;
 
     .navbar-brand {
@@ -47,4 +48,8 @@
 
 .custom-dialog-container {
     z-index: 1040 !important;
+}
+
+a.active {
+    border-bottom: 2px solid white;
 }

@@ -33,13 +33,12 @@
     </div>
 
     <!-- The view of the products -->
-    <div class="row">
+    <div class="row" id="target-products">
       <ng-container
         *ngFor="let product of productsList; let i = index; trackBy: trackById"
       >
         <div
           class="productCard col-md-3 mb-5 position-relative"
-          id="products"
           *ngIf="
             (selectedCategory === 'all' ||
               product.category === selectedCategory) &&
