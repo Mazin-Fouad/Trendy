@@ -40,17 +40,12 @@
         class="col-md-4 d-flex flex-column flex-sm-row align-items-center justify-content-end"
       >
         <a
-          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 me-0 me-sm-3 fs-5 text-black"
-          href="#"
-          ><i class="fa-solid fa-magnifying-glass me-1 p-2"></i
-        ></a>
-        <a
           *ngIf="itemsInCart.length > 0"
-          class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black me-0 me-sm-3"
+          class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black"
           routerLink="/cart"
           ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>
           <span
-            class="position-absolute fs-6 favorits-count"
+            class="position-absolute fs-6 cart-count"
             [ngClass]="{ 'scale-down-bl': animateCart }"
             *ngIf="itemsInCart.length > 0"
             >{{ itemsInCart.length }}</span
@@ -59,7 +54,10 @@
 
         <a
           (click)="openDialog()"
-          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative cursor-pointer"
+          *ngIf="productData.length > 0"
+          matTooltip="Your favorites list"
+          matTooltipPosition="below"
+          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative cursor-pointer ms-2"
           ><i class="fa-solid fa-heart p-2" style="color: #000714"></i>
           <span
             class="position-absolute fs-6 favorits-count"
@@ -68,6 +66,17 @@
             >{{ productData.length }}</span
           >
         </a>
+
+        <a
+          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 fs-5 text-black cursor-pointer ms-2"
+          matTooltip="Logout"
+          matTooltipPosition="after"
+          (click)="logOut()"
+          ><i
+            class="fa-solid fa-right-from-bracket p-2"
+            style="color: #000205"
+          ></i
+        ></a>
       </div>
     </div>
   </div>

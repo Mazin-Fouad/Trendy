@@ -4,7 +4,7 @@ section {
     min-height: 100dvh;
 
     .feature-list {
-        background-color: #d2ebf5;
+        background-color: $bg-color-light;
         max-width: 500px;
     }
 
@@ -25,6 +25,11 @@ section {
 
     .costum-color {
         background-color: $links-color-darkGrey;
+    }
+
+    .headline {
+        color: #efdfdf;
+        letter-spacing: 1px;
     }
 
     .customBtn {

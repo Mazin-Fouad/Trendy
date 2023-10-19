@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { SharedService } from 'src/app/services/apiData/shared.service';
 import { FavoriteItemsComponent } from '../favorite-items/favorite-items.component';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/user/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -28,7 +30,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private sharedService: SharedService,
     private cdRef: ChangeDetectorRef,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -97,5 +101,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (navElement) {
       navElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  logOut(): void {
+    this.authService.clearToken();
+    setTimeout(() => {
+      this.router.navigate(['/entrance']);
+    }, 800);
   }
 }
