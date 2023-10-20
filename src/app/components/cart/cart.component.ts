@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators'; // Correct import for 'operators'
-import { UserCart } from 'src/app/models/user-cart';
 import { ProductService } from 'src/app/services/apiData/product.service';
 import { SharedService } from 'src/app/services/apiData/shared.service';
 

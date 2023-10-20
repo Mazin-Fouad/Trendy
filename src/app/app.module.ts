@@ -43,8 +43,9 @@ import { TermsComponent } from './components/terms/terms.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { CookiesSettingsComponent } from './components/cookies-settings/cookies-settings.component';
 import { CartComponent } from './components/cart/cart.component';
-import { BillComponent } from './components/bill/bill.component';
+import { BillComponent } from './components/cart/bill/bill.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CompleteOrderComponent } from './components/cart/complete-order/complete-order.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CookiesSettingsComponent,
     CartComponent,
     BillComponent,
+    CompleteOrderComponent,
   ],
   imports: [
     BrowserModule,
