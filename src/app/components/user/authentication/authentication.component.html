@@ -97,6 +97,22 @@
               Login
             </button>
           </div>
+
+          <!-- ============ Error messages for login ============ -->
+          <div
+            [hidden]="loginForm.valid || loginForm.untouched"
+            class="d-flex flex-column align-items-center mt-3 text-danger w-50"
+          >
+            <small
+              *ngIf="getUserName?.touched && getUserName?.errors?.['required']"
+              >Username is required</small
+            >
+
+            <small
+              *ngIf="getPassword?.touched && getPassword?.errors?.['required']"
+              >Password is required</small
+            >
+          </div>
         </form>
 
         <!-- ============ Signup Form ============ -->
@@ -208,11 +224,56 @@
               Register
             </button>
           </div>
-        </form>
 
-        <div class="text-center mt-3">
-          {{ email?.errors | json }}
-        </div>
+          <!-- ============ Errog messages for signup ============ -->
+          <div
+            [hidden]="registrationForm.valid || registrationForm.untouched"
+            class="text-center mt-3 w-50 mx-auto text-danger d-flex flex-column"
+          >
+            <small *ngIf="email?.touched && email?.errors?.['required']">
+              E-Mail is required!
+            </small>
+
+            <small *ngIf="email?.touched && email?.errors?.['pattern']">
+              Valid E-Mail is required!
+            </small>
+
+            <small *ngIf="pasword?.touched && pasword?.errors?.['required']">
+              Password is required!
+            </small>
+
+            <small *ngIf="userName?.touched && userName?.errors?.['required']">
+              Username is required!
+            </small>
+
+            <small
+              *ngIf="firstName?.touched && firstName?.errors?.['required']"
+            >
+              First name is required!
+            </small>
+
+            <small *ngIf="lastName?.touched && lastName?.errors?.['required']">
+              Last name is required!
+            </small>
+
+            <small *ngIf="street?.touched && street?.errors?.['required']"
+              >Street name is required!</small
+            >
+
+            <small
+              *ngIf="streetNumber?.touched && streetNumber?.errors?.['required']"
+              >Street Nr. name is required!</small
+            >
+
+            <small *ngIf="zipCode?.touched && zipCode?.errors?.['required']"
+              >City Zip is required!</small
+            >
+
+            <small *ngIf="city?.touched && city?.errors?.['required']"
+              >City name is required!</small
+            >
+          </div>
+        </form>
 
         <div
           *ngIf="isUserRegistered"

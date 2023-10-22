@@ -22,7 +22,14 @@ export class AuthenticationComponent implements OnInit {
     private router: Router
   ) {
     this.registrationForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/),
+        ],
+      ],
       password: ['', Validators.required],
       userName: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -90,7 +97,7 @@ export class AuthenticationComponent implements OnInit {
     return this.registrationForm.get('email');
   }
 
-  get passw() {
+  get pasword() {
     return this.registrationForm.get('password');
   }
 
@@ -125,5 +132,13 @@ export class AuthenticationComponent implements OnInit {
 
   get city() {
     return this.address?.get('city'); // Accessing it from the address form group
+  }
+
+  get getUserName() {
+    return this.loginForm.get('username');
+  }
+
+  get getPassword() {
+    return this.loginForm.get('password');
   }
 }
