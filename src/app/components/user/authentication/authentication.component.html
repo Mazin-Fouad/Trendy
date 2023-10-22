@@ -210,6 +210,10 @@
           </div>
         </form>
 
+        <div class="text-center mt-3">
+          {{ email?.errors | json }}
+        </div>
+
         <div
           *ngIf="isUserRegistered"
           class="alert alert-warning w-75 ms-auto me-auto d-flex justify-content-center mt-5"

@@ -63,9 +63,7 @@ export class AuthenticationComponent implements OnInit {
   registerSubmit() {
     this.authService
       .signUp(this.registrationForm.value)
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .subscribe((response) => {});
 
     this.isUserRegistered = true;
   }
@@ -86,5 +84,46 @@ export class AuthenticationComponent implements OnInit {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  get email() {
+    return this.registrationForm.get('email');
+  }
+
+  get passw() {
+    return this.registrationForm.get('password');
+  }
+
+  get userName() {
+    return this.registrationForm.get('userName');
+  }
+
+  get firstName() {
+    return this.registrationForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.registrationForm.get('lastName');
+  }
+
+  // For the address form group
+  get address() {
+    return this.registrationForm.get('address');
+  }
+
+  get street() {
+    return this.address?.get('street'); // Accessing it from the address form group
+  }
+
+  get streetNumber() {
+    return this.address?.get('streetNumber'); // Accessing it from the address form group
+  }
+
+  get zipCode() {
+    return this.address?.get('zipCode'); // Accessing it from the address form group
+  }
+
+  get city() {
+    return this.address?.get('city'); // Accessing it from the address form group
   }
 }

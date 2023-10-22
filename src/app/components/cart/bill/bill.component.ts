@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CompleteOrderComponent } from '../complete-order/complete-order.component';
 
@@ -9,10 +9,11 @@ import { CompleteOrderComponent } from '../complete-order/complete-order.compone
 })
 export class BillComponent {
   @Input() itemsInCart!: any[];
+  @Output() dialogClosed: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  // Calculation methods
   calculateTotal(): number {
     return this.itemsInCart.reduce(
       (acc, item) => acc + item.price * item.quantity,
@@ -30,8 +31,7 @@ export class BillComponent {
     return total > 100 ? total * 0.9 : total;
   }
 
-  // Inside BillComponent
-
+  // Utility & Interaction methods
   openDialog() {
     const dialogRef: MatDialogRef<CompleteOrderComponent> = this.dialog.open(
       CompleteOrderComponent
@@ -40,6 +40,7 @@ export class BillComponent {
     // Close the dialog and empty the cart when the countdown completes
     dialogRef.componentInstance.countdownCompleted.subscribe(() => {
       dialogRef.close();
+      this.dialogClosed.emit();
     });
   }
 }

@@ -8,7 +8,7 @@ import { SharedService } from 'src/app/services/apiData/shared.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  receivedCartItems: any[] = []; // corrected the spelling of 'received'
+  receivedCartItems: any[] = [];
   itemsInCart: any[] = [];
 
   constructor(
@@ -19,51 +19,35 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.itemsInCart$.subscribe((items: any) => {
       this.receivedCartItems = items;
-
-      // If receivedCartItems is empty, empty itemsInCart as well
-      if (!this.receivedCartItems.length) {
-        this.itemsInCart = [];
-        return;
-      }
-
-      // Make sure you've received itemsInCart before filtering
-      if (this.itemsInCart.length) {
-        this.filterItemsBasedOnCart();
-      }
+      this.updateItemsInCartBasedOnReceivedItems();
     });
 
     this.productService.getAllProducts().subscribe((products: any[]) => {
       this.itemsInCart = products;
-
-      // If receivedCartItems is empty, empty itemsInCart as well
-      if (!this.receivedCartItems.length) {
-        this.itemsInCart = [];
-        return;
-      }
-
-      // Make sure you've received receivedCartItems before filtering
-      if (this.receivedCartItems.length) {
-        this.filterItemsBasedOnCart();
-      }
+      this.updateItemsInCartBasedOnReceivedItems();
     });
   }
 
+  private updateItemsInCartBasedOnReceivedItems(): void {
+    if (!this.receivedCartItems.length || !this.itemsInCart.length) {
+      this.itemsInCart = [];
+      return;
+    }
+
+    this.filterItemsBasedOnCart();
+  }
+
   private filterItemsBasedOnCart(): void {
-    // Create a map of product ID to its quantity
     const cartProductQuantityMap = new Map(
       this.receivedCartItems.map((item) => [item.product, item.quantity])
     );
 
-    // Filter itemsInCart to only include items with product IDs in cartProductQuantityMap
-    // and also augment the product with its corresponding quantity
     this.itemsInCart = this.itemsInCart
       .filter((product) => cartProductQuantityMap.has(product.id))
       .map((product) => ({
         ...product,
         quantity: cartProductQuantityMap.get(product.id),
       }));
-
-    console.log(this.itemsInCart);
   }
 
   increaseQuantity(item: any): void {
@@ -85,5 +69,10 @@ export class CartComponent implements OnInit {
     if (index !== -1) {
       this.itemsInCart.splice(index, 1);
     }
+  }
+
+  clearCart(): void {
+    this.itemsInCart.length = 0;
+    this.receivedCartItems.length = 0;
   }
 }

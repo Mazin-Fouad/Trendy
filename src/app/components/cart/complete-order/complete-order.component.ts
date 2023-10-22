@@ -17,10 +17,10 @@ export class CompleteOrderComponent implements OnInit {
       this.countdown--;
 
       if (this.countdown <= 0) {
-        clearInterval(interval); // Stop the interval when countdown reaches 0
-        this.router.navigate(['/main']); // Navigate to homepage
+        clearInterval(interval);
+        this.router.navigate(['/main']);
         this.countdownCompleted.emit();
       }
-    }, 1000); // Decrease every second
+    }, 1000);
   }
 }

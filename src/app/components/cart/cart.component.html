@@ -64,7 +64,10 @@
       </div>
 
       <div class="col-xl-4 ms-auto">
-        <app-bill [itemsInCart]="itemsInCart"></app-bill>
+        <app-bill
+          [itemsInCart]="itemsInCart"
+          (dialogClosed)="clearCart()"
+        ></app-bill>
       </div>
     </div>
   </div>
