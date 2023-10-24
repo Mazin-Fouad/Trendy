@@ -82,8 +82,8 @@ export class AuthenticationComponent implements OnInit {
       this.authService.login(loginData).subscribe((response) => {
         console.log(response);
       });
+      this.router.navigate(['/main']);
     }
-    this.router.navigate(['/main']);
   }
 
   scrollTo(elementId: string): void {

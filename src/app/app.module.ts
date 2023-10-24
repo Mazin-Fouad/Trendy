@@ -46,6 +46,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { BillComponent } from './components/cart/bill/bill.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CompleteOrderComponent } from './components/cart/complete-order/complete-order.component';
+import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { CompleteOrderComponent } from './components/cart/complete-order/complet
     CartComponent,
     BillComponent,
     CompleteOrderComponent,
+    ImportantNoteComponent,
   ],
   imports: [
     BrowserModule,

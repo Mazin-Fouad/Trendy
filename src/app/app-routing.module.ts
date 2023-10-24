@@ -8,6 +8,7 @@ import { PrivatPolicyComponent } from './components/privat-policy/privat-policy.
 import { TermsComponent } from './components/terms/terms.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'data_protection', component: PrivatPolicyComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'note', component: ImportantNoteComponent },
 
   { path: 'terms', component: TermsComponent },
 

@@ -12,13 +12,6 @@ import { UserLogin } from 'src/app/models/user-login';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  // signUp(data: UserRegistrationForm): Observable<UserRegistrationForm> {
-  //   return this.http.post<UserRegistrationForm>(
-  //     environment.baseUrl + '/users',
-  //     data
-  //   );
-  // }
-
   signUp(data: UserRegistrationForm): Observable<UserRegistrationForm> {
     return this.http
       .post<UserRegistrationForm>(environment.baseUrl + '/users', data)
