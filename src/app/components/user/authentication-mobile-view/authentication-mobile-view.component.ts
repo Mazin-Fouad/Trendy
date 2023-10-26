@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/user/auth.service';
 })
 export class AuthenticationMobileViewComponent {
   isUserRegistered: boolean = true;
+  showMessage: boolean = false;
   registrationForm: FormGroup;
   loginForm: FormGroup;
 
@@ -45,7 +46,8 @@ export class AuthenticationMobileViewComponent {
         console.log(response);
       });
 
-    this.isUserRegistered = true;
+    this.showMessage = true;
+    this.registrationForm.reset();
   }
 
   loginSubmit() {

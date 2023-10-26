@@ -158,6 +158,13 @@
       </button>
     </div>
 
+    <div
+      class="alert alert-light w-50 text-center mt-3 mx-auto"
+      *ngIf="showMessage"
+    >
+      <h3>Your have successfully registered.</h3>
+    </div>
+
     <!-- ============ Errog messages for signup ============ -->
     <div
       [hidden]="registrationForm.valid || registrationForm.untouched"
@@ -206,7 +213,7 @@
 
     <Span
       (click)="userNotAuthenticated()"
-      class="text-white fw-bold text-center mt-5 cursor-pointer"
+      class="text-white fw-bold text-center mt-3 cursor-pointer"
     >
       Login >
     </Span>
