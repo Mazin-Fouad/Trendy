@@ -15,6 +15,7 @@ export class AuthenticationComponent implements OnInit {
   showLoginForm: boolean = true;
   username!: string;
   password!: string;
+  loginError: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -79,10 +80,17 @@ export class AuthenticationComponent implements OnInit {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
 
-      this.authService.login(loginData).subscribe((response) => {
-        console.log(response);
-      });
-      this.router.navigate(['/main']);
+      this.authService.login(loginData).subscribe(
+        (response) => {
+          // Handle the successful login, like saving the token and redirecting.
+          this.router.navigate(['/main']);
+        },
+        (error) => {
+          // Handle the login error.
+          this.loginError =
+            'Failed to login. Please check your credentials and try again.';
+        }
+      );
     }
   }
 

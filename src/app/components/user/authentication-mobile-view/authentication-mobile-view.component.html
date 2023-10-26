@@ -271,6 +271,10 @@
       <small *ngIf="getPassword?.touched && getPassword?.errors?.['required']"
         >Password is required</small
       >
+
+      <div *ngIf="loginError" class="text-white mt-3 mb-3 text-nowrap">
+        {{ loginError }}
+      </div>
     </div>
 
     <span

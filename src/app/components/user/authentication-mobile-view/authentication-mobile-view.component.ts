@@ -13,6 +13,7 @@ export class AuthenticationMobileViewComponent {
   showMessage: boolean = false;
   registrationForm: FormGroup;
   loginForm: FormGroup;
+  loginError: string | null = null;
 
   constructor(
     private authService: AuthService,
@@ -50,15 +51,33 @@ export class AuthenticationMobileViewComponent {
     this.registrationForm.reset();
   }
 
+  // loginSubmit() {
+  //   if (this.loginForm.valid) {
+  //     const loginData = this.loginForm.value;
+
+  //     this.authService.login(loginData).subscribe((response) => {
+  //       console.log(response);
+  //     });
+  //   }
+  //   this.router.navigate(['/main']);
+  // }
+
   loginSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
 
-      this.authService.login(loginData).subscribe((response) => {
-        console.log(response);
-      });
+      this.authService.login(loginData).subscribe(
+        (response) => {
+          // Handle the successful login, like saving the token and redirecting.
+          this.router.navigate(['/main']);
+        },
+        (error) => {
+          // Handle the login error.
+          this.loginError =
+            'Failed to login. Please check your credentials and try again.';
+        }
+      );
     }
-    this.router.navigate(['/main']);
   }
 
   @HostListener('window:scroll', [])

@@ -8,9 +8,12 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+  constructor(private router: Router) {}
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -35,10 +38,14 @@ export class AuthInterceptor implements HttpInterceptor {
         } else {
           errorMessage = this.handleErrorStatus(error.status);
 
-          // Potential user feedback mechanisms
           if (error.status === 401) {
-            // redirectToLogin(); or showLoginModal();
+            // Optionally, display a notification or message to the user.
+            // For example: this.notificationService.error('Session expired. Please login again.');
+
+            // Redirect the user to the login page
+            this.router.navigate(['/entrance']);
           } else if (error.status === 403) {
+            // Handle forbidden access, if needed.
             // redirectToForbiddenPage(); or showForbiddenModal();
           }
         }
