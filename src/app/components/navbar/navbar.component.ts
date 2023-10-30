@@ -40,16 +40,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.sharedService.getFavorites$.subscribe((data: any) => {
         this.productData = [...data];
         this.triggerAnimation();
-        this.subscriptions.push(favoriteSubscribe);
       });
+    // Add the subscription to the array immediately
+    this.subscriptions.push(favoriteSubscribe);
 
     let cartSubscribe: Subscription = this.sharedService.itemsInCart$.subscribe(
       (data: any) => {
         this.itemsInCart = data;
         this.triggerCartAnimation();
-        this.subscriptions.push(cartSubscribe);
       }
     );
+    // Add the subscription to the array immediately
+    this.subscriptions.push(cartSubscribe);
   }
 
   triggerAnimation() {

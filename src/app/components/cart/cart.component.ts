@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/services/apiData/shared.service';
 export class CartComponent implements OnInit {
   receivedCartItems: any[] = [];
   itemsInCart: any[] = [];
+  totalItemsCount: number = 0;
 
   constructor(
     private sharedService: SharedService,
@@ -31,10 +32,15 @@ export class CartComponent implements OnInit {
   private updateItemsInCartBasedOnReceivedItems(): void {
     if (!this.receivedCartItems.length || !this.itemsInCart.length) {
       this.itemsInCart = [];
+      this.totalItemsCount = 0;
       return;
     }
 
     this.filterItemsBasedOnCart();
+    this.totalItemsCount = this.itemsInCart.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
   }
 
   private filterItemsBasedOnCart(): void {
@@ -51,28 +57,19 @@ export class CartComponent implements OnInit {
   }
 
   increaseQuantity(item: any): void {
-    const index = this.itemsInCart.indexOf(item);
-    if (index !== -1) {
-      this.itemsInCart[index].quantity += 1;
-    }
+    this.sharedService.increaseQuantity(item);
   }
 
   decreaseQuantity(item: any): void {
-    const index = this.itemsInCart.indexOf(item);
-    if (index !== -1 && this.itemsInCart[index].quantity > 0) {
-      this.itemsInCart[index].quantity -= 1;
-    }
+    this.sharedService.decreaseQuantity(item);
   }
 
   deleteItem(item: any): void {
-    const index = this.itemsInCart.indexOf(item);
-    if (index !== -1) {
-      this.itemsInCart.splice(index, 1);
-    }
+    this.sharedService.deleteItem(item);
   }
 
   clearCart(): void {
     this.itemsInCart.length = 0;
-    this.receivedCartItems.length = 0;
+    this.sharedService.updateItemsInCart([]);
   }
 }

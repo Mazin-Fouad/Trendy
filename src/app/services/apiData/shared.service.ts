@@ -27,10 +27,34 @@ export class SharedService {
   }
 
   updateItemsInCart(newItems: any[]): void {
-    const currentItems = this.itemsInCartSubject.value;
-    // merge currentItems and newItems appropriately here
-    // For simplicity, I'm just using concat. Adjust as needed.
-    const updatedItems = currentItems.concat(newItems);
+    // Create a new reference using spread syntax
+    this.itemsInCartSubject.next([...newItems]);
+  }
+
+  increaseQuantity(product: any): void {
+    const item = this.itemsInCartSubject.value.find(
+      (i) => i.product === product.id
+    );
+    if (item) {
+      item.quantity += 1;
+      this.itemsInCartSubject.next([...this.itemsInCartSubject.value]);
+    }
+  }
+
+  decreaseQuantity(product: any): void {
+    const item = this.itemsInCartSubject.value.find(
+      (i) => i.product === product.id
+    );
+    if (item && item.quantity > 0) {
+      item.quantity -= 1;
+      this.itemsInCartSubject.next([...this.itemsInCartSubject.value]);
+    }
+  }
+
+  deleteItem(product: any): void {
+    const updatedItems = this.itemsInCartSubject.value.filter(
+      (i) => i.product !== product.id
+    );
     this.itemsInCartSubject.next(updatedItems);
   }
 }

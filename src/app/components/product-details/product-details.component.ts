@@ -33,6 +33,9 @@ export class ProductDetailsComponent {
     private cartService: CartService
   ) {
     this.product = data;
+    this.sharedService.itemsInCart$.subscribe(
+      (items) => (this.itemsInCart = items)
+    );
   }
 
   onNoClick(): void {
@@ -56,20 +59,6 @@ export class ProductDetailsComponent {
     );
   }
 
-  // addToCart(): void {
-  //   const userId = this.authService.getUserId();
-  //   const date = new Date().toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
-  //   const products = [{ product: this.product.id, quantity: 1 }]; // Assuming adding 1 product for simplicity
-
-  //   this.cartService
-  //     .addToCart(userId!, date, products)
-  //     .subscribe((response) => {
-  //       console.log(response);
-  //       this.itemsInCart.push(...response.products);
-  //       this.sharedService.updateItemsInCart(this.itemsInCart);
-  //     });
-  // }
-
   addToCart(): void {
     const userId = this.authService.getUserId();
     const date = new Date().toISOString().split('T')[0];
@@ -79,7 +68,7 @@ export class ProductDetailsComponent {
     );
 
     if (existingProduct) {
-      existingProduct.quantity += 1; // Increment the quantity if product exists
+      existingProduct.quantity += 1;
     } else {
       this.itemsInCart.push({ product: this.product.id, quantity: 1 });
     }
@@ -88,7 +77,8 @@ export class ProductDetailsComponent {
       .addToCart(userId!, date, this.itemsInCart)
       .subscribe((response) => {
         console.log(response);
-        this.sharedService.updateItemsInCart(this.itemsInCart); // Update using SharedService
+        // Update the shared service with the new cart items
+        this.sharedService.updateItemsInCart(this.itemsInCart);
       });
   }
 }
