@@ -8,7 +8,7 @@ describe('CompleteOrderComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CompleteOrderComponent]
+      declarations: [CompleteOrderComponent],
     });
     fixture = TestBed.createComponent(CompleteOrderComponent);
     component = fixture.componentInstance;

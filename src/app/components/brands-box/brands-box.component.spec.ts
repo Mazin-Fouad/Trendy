@@ -8,7 +8,7 @@ describe('BrandsBoxComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BrandsBoxComponent]
+      declarations: [BrandsBoxComponent],
     });
     fixture = TestBed.createComponent(BrandsBoxComponent);
     component = fixture.componentInstance;
