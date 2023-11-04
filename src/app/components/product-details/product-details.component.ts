@@ -22,6 +22,7 @@ export class ProductDetailsComponent {
   product: Product = {} as Product;
   selectedSize: string = '';
   itemsInCart: any[] = [];
+  selectedSizeValue: string = '';
 
   constructor(
     public dialogRef: MatDialogRef<ProductsComponent>,
@@ -70,7 +71,11 @@ export class ProductDetailsComponent {
     if (existingProduct) {
       existingProduct.quantity += 1;
     } else {
-      this.itemsInCart.push({ product: this.product.id, quantity: 1 });
+      this.itemsInCart.push({
+        product: this.product.id,
+        quantity: 1,
+        size: this.selectedSizeValue,
+      });
     }
 
     this.cartService

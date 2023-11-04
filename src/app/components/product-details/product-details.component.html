@@ -68,7 +68,7 @@
       <!-- Product Size Selection -->
       <mat-form-field style="height: 67px">
         <mat-label>Select the size</mat-label>
-        <mat-select #selectedSize>
+        <mat-select #selectedSize [(ngModel)]="selectedSizeValue" name="size">
           <mat-option value="s"> S </mat-option>
           <mat-option value="m"> M </mat-option>
           <mat-option value="l"> L </mat-option>
@@ -93,7 +93,11 @@
         ></i>
 
         <!-- Add to Cart Button -->
-        <button (click)="addToCart()" class="flex-lg-grow-1 btn btn-dark fs-5">
+        <button
+          (click)="addToCart()"
+          class="flex-lg-grow-1 btn btn-dark fs-5"
+          [disabled]="!selectedSizeValue"
+        >
           Add to cart
         </button>
       </div>

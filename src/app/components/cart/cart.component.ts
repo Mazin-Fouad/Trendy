@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
     this.sharedService.itemsInCart$.subscribe((items: any) => {
       this.receivedCartItems = items;
       this.updateItemsInCartBasedOnReceivedItems();
+      console.log(this.receivedCartItems);
     });
 
     this.productService.getAllProducts().subscribe((products: any[]) => {
@@ -43,16 +44,35 @@ export class CartComponent implements OnInit {
     );
   }
 
+  // private filterItemsBasedOnCart(): void {
+  //   const cartProductQuantityMap = new Map(
+  //     this.receivedCartItems.map((item) => [item.product, item.quantity])
+  //   );
+
+  //   this.itemsInCart = this.itemsInCart
+  //     .filter((product) => cartProductQuantityMap.has(product.id))
+  //     .map((product) => ({
+  //       ...product,
+  //       quantity: cartProductQuantityMap.get(product.id),
+  //     }));
+  // }
+
   private filterItemsBasedOnCart(): void {
-    const cartProductQuantityMap = new Map(
-      this.receivedCartItems.map((item) => [item.product, item.quantity])
+    // Create a map with product ID as the key and the object containing quantity and size as the value.
+    const cartProductDetailsMap = new Map(
+      this.receivedCartItems.map((item) => [
+        item.product,
+        { quantity: item.quantity, size: item.size },
+      ])
     );
 
+    // Filter and map the items in cart to include the quantity and size from the cartProductDetailsMap.
     this.itemsInCart = this.itemsInCart
-      .filter((product) => cartProductQuantityMap.has(product.id))
+      .filter((product) => cartProductDetailsMap.has(product.id))
       .map((product) => ({
         ...product,
-        quantity: cartProductQuantityMap.get(product.id),
+        quantity: cartProductDetailsMap.get(product.id)?.quantity,
+        size: cartProductDetailsMap.get(product.id)?.size, // Ensure that the size is being passed through here
       }));
   }
 

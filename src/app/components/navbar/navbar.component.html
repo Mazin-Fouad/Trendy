@@ -42,14 +42,16 @@
         <a
           *ngIf="itemsInCart.length > 0"
           class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black"
+          matTooltip="Click on the cart to see your selected items"
+          matTooltipPosition="below"
           routerLink="/cart"
           ><i class="fa-solid fa-bag-shopping me-1 p-2"></i>
-          <span
+          <!-- <span
             class="position-absolute fs-6 cart-count"
             [ngClass]="{ 'scale-down-bl': animateCart }"
             *ngIf="itemsInCart.length > 0"
             >{{ itemsInCart.length }}</span
-          >
+          > -->
         </a>
 
         <a
@@ -59,12 +61,12 @@
           matTooltipPosition="below"
           class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative cursor-pointer ms-2"
           ><i class="fa-solid fa-heart p-2" style="color: #000714"></i>
-          <span
+          <!-- <span
             class="position-absolute fs-6 favorits-count"
             [ngClass]="{ 'scale-down-bl': animate }"
             *ngIf="productData.length > 0"
             >{{ productData.length }}</span
-          >
+          > -->
         </a>
 
         <a

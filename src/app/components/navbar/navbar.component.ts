@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @ViewChild('productsSection', { read: ElementRef })
   productsSection!: ElementRef;
   itemsInCart: any[] = [];
+
   constructor(
     private sharedService: SharedService,
     private cdRef: ChangeDetectorRef,
@@ -48,6 +49,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       (data: any) => {
         this.itemsInCart = data;
         this.triggerCartAnimation();
+        this.cdRef.detectChanges();
       }
     );
     // Add the subscription to the array immediately
