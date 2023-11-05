@@ -47,6 +47,7 @@ import { BillComponent } from './components/cart/bill/bill.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CompleteOrderComponent } from './components/cart/complete-order/complete-order.component';
 import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ImportantNoteComponent } from './components/user/important-note/importa
     BillComponent,
     CompleteOrderComponent,
     ImportantNoteComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,

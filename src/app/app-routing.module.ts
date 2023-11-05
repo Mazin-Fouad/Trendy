@@ -9,6 +9,7 @@ import { ImprintComponent } from './components/imprint/imprint.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
@@ -21,10 +22,9 @@ const routes: Routes = [
   { path: 'data_protection', component: PrivatPolicyComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'contact', component: ContactFormComponent },
   { path: 'note', component: ImportantNoteComponent },
-
   { path: 'terms', component: TermsComponent },
-
   { path: '**', component: NotFoundComponent },
 ];
 
