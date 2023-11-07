@@ -3,18 +3,19 @@
 section {
     min-height: 100dvh;
     background-color: #212529;
-
-    h1 {
-        position: relative;
-        &::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            width: 45px;
-            height: 3px;
-            background: white;
-            transform: translateX(-50%);
+    .contact-header {
+        h1 {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -10px;
+                width: 45px;
+                height: 3px;
+                background: white;
+                transform: translateX(-50%);
+            }
         }
     }
 

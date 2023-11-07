@@ -12,7 +12,6 @@ export class FooterComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CookiesSettingsComponent, {});
-
     dialogRef.afterClosed().subscribe((result) => {});
   }
 }

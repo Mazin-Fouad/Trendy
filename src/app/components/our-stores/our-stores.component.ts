@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { StoresDataService } from 'src/app/services/staticData/stores-data.service';
-// Provide the correct path here
 import { Stores } from 'src/app/viewModels/stores';
 
 @Component({

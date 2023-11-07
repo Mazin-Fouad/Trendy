@@ -13,7 +13,6 @@ export class BillComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  // Calculation methods
   calculateTotal(): number {
     return this.itemsInCart.reduce(
       (acc, item) => acc + item.price * item.quantity,
@@ -31,13 +30,11 @@ export class BillComponent {
     return total > 100 ? total * 0.9 : total;
   }
 
-  // Utility & Interaction methods
   openDialog() {
     const dialogRef: MatDialogRef<CompleteOrderComponent> = this.dialog.open(
       CompleteOrderComponent
     );
 
-    // Close the dialog and empty the cart when the countdown completes
     dialogRef.componentInstance.countdownCompleted.subscribe(() => {
       dialogRef.close();
       this.dialogClosed.emit();

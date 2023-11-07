@@ -44,19 +44,6 @@ export class CartComponent implements OnInit {
     );
   }
 
-  // private filterItemsBasedOnCart(): void {
-  //   const cartProductQuantityMap = new Map(
-  //     this.receivedCartItems.map((item) => [item.product, item.quantity])
-  //   );
-
-  //   this.itemsInCart = this.itemsInCart
-  //     .filter((product) => cartProductQuantityMap.has(product.id))
-  //     .map((product) => ({
-  //       ...product,
-  //       quantity: cartProductQuantityMap.get(product.id),
-  //     }));
-  // }
-
   private filterItemsBasedOnCart(): void {
     // Create a map with product ID as the key and the object containing quantity and size as the value.
     const cartProductDetailsMap = new Map(

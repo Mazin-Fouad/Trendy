@@ -42,7 +42,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.productData = [...data];
         this.triggerAnimation();
       });
-    // Add the subscription to the array immediately
     this.subscriptions.push(favoriteSubscribe);
 
     let cartSubscribe: Subscription = this.sharedService.itemsInCart$.subscribe(
@@ -52,30 +51,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.cdRef.detectChanges();
       }
     );
-    // Add the subscription to the array immediately
     this.subscriptions.push(cartSubscribe);
   }
 
   triggerAnimation() {
     this.animate = true;
 
-    // Reset the animation state after a short delay
-    // Adjust the timeout duration to match your animation's duration
     setTimeout(() => {
       this.animate = false;
-      this.cdRef.detectChanges(); // Trigger change detection to update the view
-    }, 500); // Assuming the animation duration is 500ms
+      this.cdRef.detectChanges();
+    }, 500);
   }
 
   triggerCartAnimation() {
     this.animateCart = true;
 
-    // Reset the animation state after a short delay
-    // Adjust the timeout duration to match your animation's duration
     setTimeout(() => {
       this.animateCart = false;
-      this.cdRef.detectChanges(); // Trigger change detection to update the view
-    }, 500); // Assuming the animation duration is 500ms
+      this.cdRef.detectChanges();
+    }, 500);
   }
 
   setActive(link: string) {

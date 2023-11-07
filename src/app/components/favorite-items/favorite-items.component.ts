@@ -50,7 +50,6 @@ export class FavoriteItemsComponent implements OnInit, OnDestroy {
       .addToCart(userId!, date, this.itemsInCart)
       .subscribe((response) => {
         console.log(response);
-        // Update the shared service with the new cart items
         this.sharedService.updateItemsInCart(this.itemsInCart);
       });
   }
