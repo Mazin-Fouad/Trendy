@@ -16,4 +16,11 @@ export class LandingSectionComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.storeData);
   }
+
+  scrollToProducts(): void {
+    const productsElement = document.getElementById('productsSection');
+    if (productsElement) {
+      productsElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

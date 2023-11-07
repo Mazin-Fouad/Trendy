@@ -28,13 +28,16 @@
           <h2 class="mt-3 mb-3 headline">{{ storeData.discribction }}</h2>
 
           <div class="d-flex justify-content-start align-items-center mt-5">
-            <a href="#" class="btn btn-primary customBtn me-5" role="button">{{
-              storeData.btnText
-            }}</a>
+            <a
+              (click)="scrollToProducts()"
+              class="btn btn-dark me-5"
+              role="button"
+              >Click for shopping</a
+            >
 
             <a
               [href]="storeData.youtubeChannel"
-              class="d-flex align-content-center fs-5 fw-bold text-white-50"
+              class="d-flex align-content-center fs-5 fw-bold youtube-link"
               ><i
                 class="fa-brands fa-youtube fs-5 me-1"
                 style="color: #e01f1f"
