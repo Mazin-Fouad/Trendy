@@ -1,106 +1,113 @@
-<!-- Main container for the product details -->
-<div class="container text-center p-3 z-3 mt-2">
-  <div class="row justify-content-around">
-    <!-- Product Image Section -->
-    <div class="col-md-4">
-      <img
-        class="img-fluid product-img"
-        [src]="product.image"
-        alt="product image"
-      />
-    </div>
-
-    <!-- Product Details Section -->
-    <div class="col-md-6 flex-column text-start mt-5">
-      <!-- Product Title -->
-      <h1>{{ product.title }}</h1>
-
-      <!-- Product Description -->
-      <p class="fs-6 fw-lighter text-capitalize">{{ product.description }}</p>
-
-      <!-- Product Rating Section -->
-      <div class="d-flex">
-        <div class="mt-1">
-          <!-- Display rating stars based on product rating -->
-          <img
-            *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
-            class="rating-stars"
-            src="assets/imgs/rating-icons/Rating=0.5, Mode=Light.png"
-            alt="rating stars"
-          />
-          <img
-            *ngIf="product.rating.rate >= 1 && product.rating.rate < 1.5"
-            class="rating-stars"
-            src="assets/imgs/rating-icons/Rating=1, Mode=Light.png"
-            alt="rating stars"
-          />
-          <!-- ... (similar code for other rating values) ... -->
-          <img
-            *ngIf="product.rating.rate === 5"
-            class="rating-stars"
-            src="assets/imgs/rating-icons/Rating=5, Mode=Light.png"
-            alt="rating stars"
-          />
-        </div>
-
-        <!-- Display number of reviews -->
-        <span class="text-warning p-1 align-self-start ms-1 fw-light"
-          >{{ product.rating.count }} (Reviews)</span
-        >
+<section>
+  <i
+    (click)="onNoClick()"
+    class="fa-solid fa-xmark p-3 fs-3 cursor-pointer"
+    style="color: #01060e"
+  ></i>
+  <!-- Main container for the product details -->
+  <div class="container text-center p-3 z-3 mt-2">
+    <div class="row justify-content-around">
+      <!-- Product Image Section -->
+      <div class="col-md-4">
+        <img
+          class="img-fluid product-img"
+          [src]="product.image"
+          alt="product image"
+        />
       </div>
 
-      <!-- Product Price -->
-      <h2 class="mt-1 fs-4 product-price">
-        {{ product.price | currency : "EUR" : "symbol" : "1.2-2" }}
-      </h2>
+      <!-- Product Details Section -->
+      <div class="col-md-6 flex-column text-start mt-5">
+        <!-- Product Title -->
+        <h1>{{ product.title }}</h1>
 
-      <!-- Shipping and Delivery Information -->
-      <p class="shipping-info bg-body-secondary p-2 w-50">
-        Incl. VAT., excl. Shipping costs <br />
-        <span
-          class="fs-7 fw-bold border-3 border-bottom cursor-pointer"
-          (click)="openDialog()"
-          >To the payment information</span
-        ><br />
-        Delivery time: 2-5 working days
-      </p>
+        <!-- Product Description -->
+        <p class="fs-6 fw-lighter text-capitalize">{{ product.description }}</p>
 
-      <!-- Product Size Selection -->
-      <mat-form-field style="height: 67px">
-        <mat-label>Select the size</mat-label>
-        <mat-select #selectedSize [(ngModel)]="selectedSizeValue" name="size">
-          <mat-option value="s"> S </mat-option>
-          <mat-option value="m"> M </mat-option>
-          <mat-option value="l"> L </mat-option>
-          <mat-option value="xl"> XL </mat-option>
-        </mat-select>
-      </mat-form-field>
+        <!-- Product Rating Section -->
+        <div class="d-flex">
+          <div class="mt-1">
+            <!-- Display rating stars based on product rating -->
+            <img
+              *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=0.5, Mode=Light.png"
+              alt="rating stars"
+            />
+            <img
+              *ngIf="product.rating.rate >= 1 && product.rating.rate < 1.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=1, Mode=Light.png"
+              alt="rating stars"
+            />
+            <!-- ... (similar code for other rating values) ... -->
+            <img
+              *ngIf="product.rating.rate === 5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=5, Mode=Light.png"
+              alt="rating stars"
+            />
+          </div>
 
-      <!-- Add to Cart and Favorite Section -->
-      <div class="addToCart d-flex">
-        <!-- Favorite Icon (Outline if not favorited, Solid if favorited) -->
-        <i
-          (click)="toggleFavorite(product); $event.stopPropagation()"
-          *ngIf="!isFavorite(product)"
-          class="fa-regular fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
-          style="color: #000000"
-        ></i>
-        <i
-          (click)="toggleFavorite(product); $event.stopPropagation()"
-          *ngIf="isFavorite(product)"
-          class="fa-solid fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
-          style="color: #00040a"
-        ></i>
+          <!-- Display number of reviews -->
+          <span class="text-warning p-1 align-self-start ms-1 fw-light"
+            >{{ product.rating.count }} (Reviews)</span
+          >
+        </div>
 
-        <!-- Add to Cart Button -->
-        <button
-          (click)="addToCart()"
-          class="flex-lg-grow-1 btn btn-dark fs-5"
-          [disabled]="!selectedSizeValue"
-        >
-          Add to cart
-        </button>
+        <!-- Product Price -->
+        <h2 class="mt-1 fs-4 product-price">
+          {{ product.price | currency : "EUR" : "symbol" : "1.2-2" }}
+        </h2>
+
+        <!-- Shipping and Delivery Information -->
+        <p class="shipping-info bg-body-secondary p-2 w-50">
+          Incl. VAT., excl. Shipping costs <br />
+          <span
+            class="fs-7 fw-bold border-3 border-bottom cursor-pointer"
+            (click)="openDialog()"
+            >To the payment information</span
+          ><br />
+          Delivery time: 2-5 working days
+        </p>
+
+        <!-- Product Size Selection -->
+        <mat-form-field style="height: 67px">
+          <mat-label>Select the size</mat-label>
+          <mat-select #selectedSize [(ngModel)]="selectedSizeValue" name="size">
+            <mat-option value="s"> S </mat-option>
+            <mat-option value="m"> M </mat-option>
+            <mat-option value="l"> L </mat-option>
+            <mat-option value="xl"> XL </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Add to Cart and Favorite Section -->
+        <div class="addToCart d-flex">
+          <!-- Favorite Icon (Outline if not favorited, Solid if favorited) -->
+          <i
+            (click)="toggleFavorite(product); $event.stopPropagation()"
+            *ngIf="!isFavorite(product)"
+            class="fa-regular fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
+            style="color: #000000"
+          ></i>
+          <i
+            (click)="toggleFavorite(product); $event.stopPropagation()"
+            *ngIf="isFavorite(product)"
+            class="fa-solid fa-heart fs-1 border border-2 border-black cursor-pointer p-1"
+            style="color: #00040a"
+          ></i>
+
+          <!-- Add to Cart Button -->
+          <button
+            (click)="addToCart()"
+            class="flex-lg-grow-1 btn btn-dark fs-5"
+            [disabled]="!selectedSizeValue"
+          >
+            Add to cart
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

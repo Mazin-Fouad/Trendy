@@ -2,17 +2,17 @@
   <div class="container border-bottom border-white">
     <!-- Brand Logo -->
     <div class="container row me-auto ms-auto pb-2">
-      <div
+      <!-- <div
         class="col-md-2 d-flex justify-content-center justify-content-md-start"
       >
         <a class="navbar-brand"
           ><img src="assets/imgs/trendy-logo-removebg.png" alt="Logo"
         /></a>
-      </div>
+      </div> -->
 
       <!-- Important links -->
       <div
-        class="col-md-6 d-flex flex-column align-items-center flex-sm-row justify-content-sm-center justify-content-md-center main-nav-links"
+        class="col-md-6 d-flex flex-column align-items-center flex-md-row justify-content-md-start main-nav-links"
       >
         <a
           class="text-decoration-none fs-5 mt-3 mt-sm-0 me-0 me-md-4 p-1"
@@ -36,13 +36,21 @@
         >
       </div>
 
-      <!-- Cart and search -->
       <div
-        class="col-md-4 d-flex flex-column flex-sm-row align-items-center justify-content-end"
+        class="col-md-2 d-flex justify-content-center justify-content-md-start"
+      >
+        <a class="navbar-brand"
+          ><img src="assets/imgs/trendy-logo-removebg.png" alt="Logo"
+        /></a>
+      </div>
+
+      <!-- Cart and Favorit -->
+      <div
+        class="col-md-4 d-flex flex-column justify-content-center align-items-center flex-md-row justify-content-end align-items-md-center"
       >
         <a
           *ngIf="itemsInCart.length > 0"
-          class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black"
+          class="text-decoration-none position-relative text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black ms-0 ms-md-2"
           matTooltip="Click on the cart to see your selected items"
           matTooltipPosition="below"
           routerLink="/cart"
@@ -54,12 +62,12 @@
           *ngIf="productData.length > 0"
           matTooltip="Your favorites list"
           matTooltipPosition="below"
-          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative cursor-pointer ms-2"
+          class="text-decoration-none text-primary fw-bold fs-5 mt-3 mt-sm-0 text-black position-relative cursor-pointer ms-0 ms-md-2"
           ><i class="fa-solid fa-heart p-2" style="color: #000714"></i>
         </a>
 
         <a
-          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 fs-5 text-black cursor-pointer ms-2"
+          class="text-decoration-none text-primary fw-bold mt-3 mt-sm-0 fs-5 text-black cursor-pointer ms-0 ms-md-2"
           matTooltip="Logout"
           matTooltipPosition="after"
           (click)="logOut()"

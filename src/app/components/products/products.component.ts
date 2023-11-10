@@ -70,9 +70,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       data: this.productDeatails,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   toggleFavorite(product: Product): void {
