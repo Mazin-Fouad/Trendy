@@ -10,6 +10,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
@@ -31,5 +32,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
 })
 export class AppRoutingModule {}
