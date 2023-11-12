@@ -1,0 +1,169 @@
+<section class="pt-5">
+  <div class="container">
+    <div style="width: 100%" class="d-flex justify-content-end mb-5">
+      <!-- Categories Dropdown -->
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Select Category
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item cursor-pointer"
+              (click)="onCategoryChange('all')"
+              >All</a
+            >
+          </li>
+          <ng-container *ngFor="let cat of categoriesList">
+            <li *ngIf="cat !== 'electronics'">
+              <a
+                class="dropdown-item cursor-pointer"
+                (click)="onCategoryChange(cat)"
+                >{{ cat | titlecase }}</a
+              >
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+
+    <!-- The view of the products -->
+    <div class="row" id="target-products">
+      <ng-container
+        *ngFor="let product of productsList; let i = index; trackBy: trackById"
+      >
+        <div
+          class="productCard col-md-4 mb-5 position-relative"
+          *ngIf="
+            (selectedCategory === 'all' ||
+              product.category === selectedCategory) &&
+            product.category !== 'electronics' &&
+            !contentIsLoading
+          "
+        >
+          <!-- Product image -->
+          <div class="product-image-container d-flex justify-content-center">
+            <img
+              (click)="openDialog(product)"
+              class="product-img img-fluid"
+              [src]="product.image"
+              alt="Product Image"
+            />
+          </div>
+
+          <!-- Rating stars -->
+          <div class="mt-1">
+            <img
+              *ngIf="product.rating.rate > 0 && product.rating.rate < 1"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=0.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 1 && product.rating.rate < 1.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=1, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 1.5 && product.rating.rate < 2"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=1.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 2 && product.rating.rate < 2.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=2, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 2.5 && product.rating.rate < 3"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=2.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 3 && product.rating.rate < 3.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=3, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 3.5 && product.rating.rate < 4"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=3.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 4 && product.rating.rate < 4.5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=4, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate >= 4.5 && product.rating.rate < 5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=4.5, Mode=Light.png"
+              alt="rating stars"
+            />
+
+            <img
+              *ngIf="product.rating.rate === 5"
+              class="rating-stars"
+              src="assets/imgs/rating-icons/Rating=5, Mode=Light.png"
+              alt="rating stars"
+            />
+          </div>
+
+          <p class="fw-bold">{{ product.title }}</p>
+          <span class="fs-6"> {{ product.price | currency : "EUR" }}</span>
+
+          <!-- Hover icons -->
+          <div
+            class="flex-column position-absolute z-2 verticalIcons-container d-none"
+          >
+            <a
+              (click)="toggleFavorite(product); $event.stopPropagation()"
+              class="border border-1 border-black mb-2 d-flex justify-content-center align-items-center icon-container"
+            >
+              <i
+                *ngIf="!isFavorite(product)"
+                class="fa-regular fa-heart fs-4"
+                style="color: #01060e"
+              ></i>
+              <i
+                *ngIf="isFavorite(product)"
+                class="fa-solid fa-heart fs-4"
+                style="color: #00040a"
+              ></i>
+            </a>
+            <a
+              (click)="openDialog(product)"
+              class="border border-1 border-black d-flex justify-content-center align-items-center icon-container"
+              ><i class="fa-solid fa-info fs-4" style="color: #000714"></i>
+            </a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Smooth content loading -->
+    <app-products-loading-view
+      *ngIf="contentIsLoading"
+    ></app-products-loading-view>
+  </div>
+</section>

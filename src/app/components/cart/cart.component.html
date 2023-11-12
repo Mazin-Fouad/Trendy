@@ -1,0 +1,81 @@
+<section class="d-flex flex-column">
+  <div class="container p-5">
+    <img
+      class="d-block mx-auto img-fluid"
+      src="assets/imgs/trendy-logo-removebg.png"
+    />
+    <h1 class="text-center mt-5">Shopping Cart</h1>
+    <a
+      routerLink="/main"
+      class="text-black-50 p-1 fs-6 text-decoration-underline mb-3"
+    >
+      <i class="fa-solid fa-angle-left" style="color: #000000"></i> Continue
+      shopping
+    </a>
+    <!-- <h1 class="mt-4">Your Items ({{ itemsInCart.length }})</h1> -->
+    <h1 class="mt-4">Your total Items ({{ totalItemsCount }})</h1>
+
+    <h2 class="m-0 fs-5 mt-4">Shipping by Treny</h2>
+    <span>Shipping time: 2-5 business days</span>
+
+    <div class="row mt-3">
+      <div class="col-xl-7">
+        <div
+          class="cart-items p-3 d-flex flex-column align-items-center justify-content-center flex-md-row justify-content-md-between align-items-md-center border-bottom"
+          *ngFor="let item of itemsInCart"
+        >
+          <img [src]="item.image" alt="item-pic" />
+          <p class="w-25">{{ item.title }}</p>
+          <p class="text-capitalize">Size: {{ item.size }}</p>
+
+          <div
+            class="d-flex justify-content-center align-items-center quantity w-25"
+          >
+            <span class="icon-container" (click)="increaseQuantity(item)"
+              ><i class="fa-solid fa-plus" style="color: #000000"></i
+            ></span>
+            <span class="mx-2">{{ item.quantity }}</span>
+            <span
+              class="icon-container"
+              *ngIf="item.quantity > 1; else deleteIcon"
+              (click)="decreaseQuantity(item)"
+              ><i class="fa-solid fa-minus" style="color: #000000"></i
+            ></span>
+            <ng-template #deleteIcon>
+              <span class="icon-container" (click)="deleteItem(item)"
+                ><i class="fa-regular fa-trash-can" style="color: #000000"></i
+              ></span>
+            </ng-template>
+          </div>
+
+          <p class="fs-4 mt-2">{{ item.price | currency : "EUR" }}</p>
+        </div>
+
+        <div
+          class="d-flex flex-column justify-content-center h-50"
+          *ngIf="itemsInCart.length === 0"
+        >
+          <h1 class="mt-5">Your cart is empty!</h1>
+          <a
+            style="width: 127px"
+            class="text-decoration-none text-black p-1"
+            routerLink="/main"
+            >Back for shopping</a
+          >
+        </div>
+      </div>
+
+      <div class="col-xl-4 ms-auto">
+        <app-bill
+          [itemsInCart]="itemsInCart"
+          (dialogClosed)="clearCart()"
+        ></app-bill>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-auto">
+    <app-our-service></app-our-service>
+    <app-footer></app-footer>
+  </div>
+</section>

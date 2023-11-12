@@ -1,0 +1,41 @@
+@import "../../../styles.scss";
+
+section {
+    font-family: "Avenir-Light" !important;
+    height: 100dvh !important;
+
+    img {
+        height: 100px;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+    a {
+        &:hover {
+            background-color: $bg-color-lightGray;
+        }
+    }
+
+    h2 {
+        font-size: 16px !important;
+        letter-spacing: 2px !important;
+    }
+
+    span {
+        font-weight: unset !important;
+    }
+}
+
+.icon-container {
+    border: 1px solid #000; /* Adjust border color and width as needed */
+    border-radius: 100%;
+    padding: 5px; /* Adjust padding as needed */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        color: #000000;
+    }
+}

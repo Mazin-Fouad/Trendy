@@ -1,0 +1,18 @@
+@import "../../../../styles.scss";
+
+.alert {
+    background-color: #f8f8f8;
+}
+.saved-amount {
+    color: $text-color-orange !important;
+    font-size: 18px;
+}
+
+.total-amount {
+    margin-top: -5px;
+}
+
+.bill-note {
+    margin-top: -12px;
+    font-size: 12px;
+}

@@ -1,10 +1,75 @@
 @font-face {
-    font-family: "Open Sans";
-    src: url("/assets/fonts/OpenSans-Regular.ttf") format("truetype");
+    font-family: "Avenir LT Std 85 Heavy";
+    src: url("assets/fonts/Avenir LT Std 85 Heavy.otf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Avenir-Light"; // Name you'll use to reference the font in your styles
+    src: url("/assets/fonts/Avenir-Light.ttf") format("truetype"); // Path to your font file
+    font-weight: normal;
+    font-style: normal;
+}
+
+$bg-color-main: linear-gradient(to bottom, #dae8fc 0%, #fff2e2 100%);
+$bg-color-nav: #dae8fc;
+$bg-color-light: #f1f2f7;
+$bg-color-white: #ffff;
+$bg-color-lightGray: #fcf4f4;
+$bg-color-antiFlashWhite: #f3f3f3;
+$-bg-color-black: #0000;
+$links-color-darkGrey: #21363e;
+$links-color-royalblue: #3734a9;
+$text-color-lightGrey: #81a4b1;
+$text-color-geen: #3c9a70;
+$text-color-royalBlue: #3734a9;
+$text-color-pink: #b71dba;
+$text-color-pinkSecondary: #fe3469;
+$text-color-lightGreen: #2c7b98;
+$text-color-mustard: #baaa1d;
+$text-color-black: #000;
+$text-color-orange: #ff5728;
 body {
-    font-family: "Open Sans", fallback, sans-serif;
+    font-family: "Avenir LT Std 85 Heavy", fallback, sans-serif !important;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.rating-stars {
+    height: 15px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.letter-spacing {
+    letter-spacing: 20px;
+}
+
+input.form-control {
+    box-shadow: none !important;
+    outline: 0;
+}
+
+input.form-control:focus {
+    border: 2px solid black !important;
+}
+
+input::placeholder {
+    letter-spacing: 2px;
 }

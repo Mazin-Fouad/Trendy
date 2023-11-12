@@ -1,0 +1,55 @@
+@import "../../../styles.scss";
+
+section {
+    min-height: 100dvh;
+
+    .feature-list {
+        background-color: $bg-color-light;
+        max-width: 500px;
+    }
+
+    .small-img {
+        height: 350px;
+    }
+
+    .imgs-clip {
+        width: 350px;
+        margin-top: -30px;
+        background: rgba(255, 255, 255, 0.19);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7.8px);
+        -webkit-backdrop-filter: blur(7.8px);
+        border: 1px solid rgba(255, 255, 255, 0.57);
+    }
+
+    .costum-color {
+        background-color: $links-color-darkGrey;
+    }
+
+    .headline,
+    .youtube-link {
+        color: #3a3a3a;
+        letter-spacing: 1px;
+    }
+
+    .customBtn {
+        background-color: $links-color-royalblue;
+    }
+
+    .fill {
+        right: -21.6em;
+        top: 54em;
+    }
+
+    .line {
+        left: -14em;
+        bottom: 0;
+    }
+
+    .line-small {
+        right: -3.5em;
+        bottom: 1em;
+        z-index: 0;
+    }
+}

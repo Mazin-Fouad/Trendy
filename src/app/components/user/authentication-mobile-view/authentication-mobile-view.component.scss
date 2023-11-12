@@ -1,0 +1,46 @@
+@import "../../../../styles.scss";
+
+section {
+    background-image: url("../../../../assets/imgs/model-men.jpg");
+    height: 100dvh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../../../../assets/imgs/model-men.jpg");
+
+    @media (min-width: 1065px) and (max-width: 1199px) {
+        section {
+            background-position: center center !important;
+        }
+    }
+
+    form {
+        height: 80%;
+    }
+
+    .logo-container {
+        width: 100%;
+
+        img {
+            height: 60px;
+        }
+
+        span {
+            cursor: pointer;
+        }
+    }
+
+    .login-form {
+        margin-top: 10i0px !important;
+        height: 40%;
+
+        .btn {
+            height: 40px;
+        }
+
+        span {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@import "../../../styles.scss";
+
+section {
+    overflow-y: hidden;
+    height: 75dvh;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+}
+
+.product-price {
+    color: $text-color-pinkSecondary !important;
+}
+
+.shipping-info {
+    color: $links-color-darkGrey;
+}
+
+.addToCart {
+    width: 300px;
+
+    .btn {
+        border-radius: unset !important;
+        border: unset !important;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        overflow-y: scroll;
+    }
+}

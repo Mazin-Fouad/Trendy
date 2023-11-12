@@ -1,0 +1,59 @@
+<div
+  class="d-flex flex-wrap flex-column align-items-center flex-md-row justify-content-md-between"
+>
+  <div
+    class="product-card-skeleton mb-5"
+    *ngFor="let item of ['1', '2', '3', '4', '5', '6', '7', '8']"
+  >
+    <!-- Image Skeleton -->
+    <ngx-skeleton-loader
+      class="product-image-skeleton"
+      [animation]="animation"
+      [count]="1"
+      [loading]="isLoading"
+      [theme]="{
+        'height.px': 140,
+        'width.%': 100
+      }"
+    ></ngx-skeleton-loader>
+
+    <!-- Title Skeleton -->
+    <ngx-skeleton-loader
+      class="product-title-skeleton"
+      [animation]="animation"
+      [count]="1"
+      [loading]="isLoading"
+    ></ngx-skeleton-loader>
+
+    <!-- Description Skeleton -->
+    <ngx-skeleton-loader
+      class="product-description-skeleton"
+      [animation]="animation"
+      [count]="1"
+      [loading]="isLoading"
+    ></ngx-skeleton-loader>
+
+    <!-- Price Skeleton -->
+    <div class="d-flex justify-content-between">
+      <ngx-skeleton-loader
+        class="product-price-skeleton"
+        [animation]="animation"
+        [count]="1"
+        [loading]="isLoading"
+        [theme]="{
+          'width.px': 70
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        class="product-price-skeleton"
+        [animation]="animation"
+        [count]="1"
+        [loading]="isLoading"
+        [theme]="{
+          'width.px': 70
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</div>

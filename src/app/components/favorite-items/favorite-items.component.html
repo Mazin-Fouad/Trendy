@@ -1,0 +1,68 @@
+<!-- Main Section -->
+<section class="p-2">
+  <!-- Title -->
+  <h1 mat-dialog-title class="fs-2">Your favorite Items</h1>
+
+  <!-- List of Favorite Items -->
+  <div
+    mat-dialog-content
+    class="d-flex flex-column flex-sm-row justify-content-center justify-content-sm-around align-items-center container test overflow-x-hidden"
+    *ngFor="let favoriteItem of favoriteItems"
+  >
+    <!-- Item Image -->
+    <div>
+      <img [src]="favoriteItem.image" alt="Item image" />
+    </div>
+
+    <!-- Item Details -->
+    <div class="w-50">
+      <h3 class="fs-4 fw-bold text-black">{{ favoriteItem.title }}</h3>
+      <p class="text-wrap">{{ favoriteItem.description }}</p>
+
+      <mat-form-field style="height: 67px; margin: 20px 0">
+        <mat-label>Select the size</mat-label>
+        <mat-select #selectedSize [(ngModel)]="selectedSizeValue" name="size">
+          <mat-option value="s"> S </mat-option>
+          <mat-option value="m"> M </mat-option>
+          <mat-option value="l"> L </mat-option>
+          <mat-option value="xl"> XL </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Price and Add to Cart Button -->
+      <div
+        class="d-flex justify-content-between align-items-start"
+        style="width: 100%"
+      >
+        <p class="price fw-bold fs-4 mt-sm-1">
+          {{ favoriteItem.price | currency : "EUR" : "symbol" : "1.2-2" }}
+        </p>
+        <button
+          (click)="addToCart(favoriteItem, selectedSize.value)"
+          class="btn btn-dark fs-5 cart-btn d-flex align-items-center fs-6"
+        >
+          Add to cart
+        </button>
+      </div>
+
+      <!-- Decorative Line -->
+      <img
+        class="custom-line mt-3"
+        src="assets/imgs/under-line.png"
+        alt="line"
+      />
+    </div>
+  </div>
+
+  <!-- Placeholder for Empty Favorite List -->
+  <ng-template [ngIf]="favoriteItems.length === 0">
+    <h3 class="text-center">No favorite items here.</h3>
+  </ng-template>
+
+  <!-- Close Button -->
+  <div mat-dialog-actions>
+    <a mat-button mat-dialog-close>
+      <i class="fa-solid fa-xmark fs-3" style="color: #00040a"></i>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,286 @@
+<section>
+  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+    <div
+      class="bg-dark p-5 d-flex flex-column justify-content-center align-items-center w-100"
+    >
+      <a class="text-nowrap text-white fs-5" (click)="scrollToTop()">Login</a>
+      <a class="text-nowrap mt-4 text-white fs-5" (click)="scrollToTop()"
+        >Sign up</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('about'); $event.preventDefault()"
+        >About us</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('stores'); $event.preventDefault()"
+        >Our Stores</a
+      >
+      <a
+        class="text-nowrap mt-4 text-white fs-5"
+        (click)="scrollTo('services'); $event.preventDefault()"
+        >Services</a
+      >
+    </div>
+  </div>
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent"
+        aria-controls="navbarToggleExternalContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="logo-container pt-5 d-flex justify-content-center">
+    <img
+      class="img-fluid"
+      src="assets/imgs/trendy-logo-removebg.png"
+      alt="trendy-logo"
+    />
+  </div>
+
+  <!-- ============ Register Form ============ -->
+  <form
+    *ngIf="!isUserRegistered"
+    (ngSubmit)="registerSubmit()"
+    [formGroup]="registrationForm"
+    class="ms-auto me-auto d-flex flex-column justify-content-center"
+    style="width: 85%"
+  >
+    <h1 class="fs-2 fw-bold text-center text-white">Sign up</h1>
+    <div class="row ps-5 pe-5">
+      <div class="col-md-12">
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="E-Mail"
+          formControlName="email"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputUsername"
+          placeholder="User"
+          formControlName="userName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4 ps-5 pe-5">
+      <div class="col-md-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          placeholder="First Name"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          placeholder="Last Name"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4 ps-5 pe-5" formGroupName="address">
+      <div class="col-md-12">
+        <input
+          type="text"
+          class="form-control"
+          id="inputStreet"
+          placeholder="Street"
+          formControlName="street"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputNr"
+          placeholder="Nr."
+          formControlName="streetNumber"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputZipCode"
+          placeholder="ZIP code"
+          formControlName="zipCode"
+        />
+      </div>
+      <div class="col-md-12 mt-2">
+        <input
+          type="text"
+          class="form-control"
+          id="inputCity"
+          placeholder="City"
+          formControlName="city"
+        />
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3" style="width: 100%">
+      <button
+        type="submit"
+        class="btn btn-dark w-50 text-uppercase rounded-0"
+        [disabled]="!registrationForm.valid"
+      >
+        Register
+      </button>
+    </div>
+
+    <div
+      class="alert alert-light w-50 text-center mt-3 mx-auto"
+      *ngIf="showMessage"
+    >
+      <h3>Your have successfully registered.</h3>
+    </div>
+
+    <!-- ============ Errog messages for signup ============ -->
+    <div
+      [hidden]="registrationForm.valid || registrationForm.untouched"
+      class="text-center mt-3 w-50 mx-auto text-light d-flex flex-column"
+    >
+      <small *ngIf="email?.touched && email?.errors?.['required']">
+        E-Mail is required!
+      </small>
+
+      <small *ngIf="email?.touched && email?.errors?.['pattern']">
+        Valid E-Mail is required!
+      </small>
+
+      <small *ngIf="pasword?.touched && pasword?.errors?.['required']">
+        Password is required!
+      </small>
+
+      <small *ngIf="userName?.touched && userName?.errors?.['required']">
+        Username is required!
+      </small>
+
+      <small *ngIf="firstName?.touched && firstName?.errors?.['required']">
+        First name is required!
+      </small>
+
+      <small *ngIf="lastName?.touched && lastName?.errors?.['required']">
+        Last name is required!
+      </small>
+
+      <small *ngIf="street?.touched && street?.errors?.['required']"
+        >Street name is required!</small
+      >
+
+      <small *ngIf="streetNumber?.touched && streetNumber?.errors?.['required']"
+        >Street Nr. name is required!</small
+      >
+
+      <small *ngIf="zipCode?.touched && zipCode?.errors?.['required']"
+        >City Zip is required!</small
+      >
+
+      <small *ngIf="city?.touched && city?.errors?.['required']"
+        >City name is required!</small
+      >
+    </div>
+
+    <Span
+      (click)="userNotAuthenticated()"
+      class="text-white fw-bold text-center mt-3 cursor-pointer"
+    >
+      Login >
+    </Span>
+  </form>
+
+  <!-- ============ Login Form ============ -->
+
+  <form
+    *ngIf="isUserRegistered"
+    (ngSubmit)="loginSubmit()"
+    class="row ms-auto me-auto mt-5 login-form"
+    style="width: 85%"
+    [formGroup]="loginForm"
+  >
+    <h1 class="fs-2 fw-bold text-center text-white">Login</h1>
+    <div class="col-12">
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        id="inputLoginUsername"
+        placeholder="User Name"
+        formControlName="username"
+      />
+    </div>
+    <div class="col-12">
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        id="inputLoginPassword"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+    <div class="d-flex justify-content-center" style="width: 100%">
+      <button
+        type="submit"
+        class="btn btn-dark w-50 text-uppercase rounded-0"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </div>
+
+    <!-- ============ Error messages for login ============ -->
+    <div
+      [hidden]="loginForm.valid || loginForm.untouched"
+      class="d-flex flex-column align-items-center mt-3 text-light w-75 mx-auto"
+    >
+      <small *ngIf="getUserName?.touched && getUserName?.errors?.['required']"
+        >Username is required</small
+      >
+
+      <small *ngIf="getPassword?.touched && getPassword?.errors?.['required']"
+        >Password is required</small
+      >
+
+      <div *ngIf="loginError" class="text-white mt-3 mb-3 text-nowrap">
+        {{ loginError }}
+      </div>
+    </div>
+
+    <span
+      (click)="userIsAuthenticated()"
+      class="text-white fw-bold text-center cursor-pointer"
+      >Register ></span
+    >
+  </form>
+</section>

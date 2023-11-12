@@ -1,0 +1,75 @@
+@import "../../../../styles.scss";
+
+section {
+    height: 100dvh;
+    .models-img {
+        max-width: 60dvw;
+        height: 100dvh;
+        object-fit: cover;
+    }
+
+    .links-container {
+        margin-left: 120px;
+
+        a {
+            text-decoration: none;
+            color: $text-color-black;
+        }
+    }
+
+    .letter-spacing {
+        letter-spacing: 20px;
+    }
+
+    .alert {
+        font-family: "Avenir LT Std 85 Heavy", fallback, sans-serif !important;
+        h2 {
+            font-weight: 800 !important;
+            font-family: "Avenir LT Std 85 Heavy", fallback, sans-serif !important;
+        }
+    }
+}
+
+form {
+    place-content: center;
+
+    // input.form-control {
+    //     box-shadow: none !important;
+    // }
+
+    // input.form-control:focus {
+    //     border: 2px solid black !important;
+    // }
+
+    // input::placeholder {
+    //     letter-spacing: 2px;
+    // }
+
+    h1 {
+        font-weight: 800;
+        letter-spacing: 2px;
+        position: relative;
+        padding: 20px;
+
+        &::after {
+            content: "";
+            width: 40px;
+            position: absolute;
+            border-bottom: 4px solid black;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .btn {
+        letter-spacing: 3px;
+    }
+}
+
+.abc {
+    color: red !important;
+    font-size: 20px;
+}

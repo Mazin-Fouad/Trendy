@@ -1,0 +1,29 @@
+<section class="d-flex flex-column justify-content-center">
+  <p class="w-50 mx-auto text-center">
+    For this project, I utilized the
+    <a href="https://fakestoreapi.com/">"Fake Store API"</a> which offers a REST
+    API. To prevent overloading the database, this API provides only a limited
+    amount of data. Consequently, I was given a restricted number of tokens. It
+    also has predefined usernames and passwords to obtain the token. Please
+    select from the table below.
+  </p>
+
+  <a class="mx-auto mt-3" routerLink="/entrance">Back to signup page</a>
+
+  <table class="table w-50 mx-auto mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userFixDatabase; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

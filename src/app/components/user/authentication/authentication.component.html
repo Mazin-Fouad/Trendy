@@ -1,0 +1,319 @@
+<app-scroll-down-nav
+  class="d-none d-md-flex"
+  (showLogin)="viewLoginForm()"
+  (showRegister)="showRegistrationForm()"
+></app-scroll-down-nav>
+
+<app-authentication-mobile-view
+  class="d-xl-none"
+></app-authentication-mobile-view>
+
+<div class="auth-page d-none d-xl-block">
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 position-relative">
+        <img
+          class="models-img card-img-overlay"
+          src="assets/imgs/auth-xl-layout.webp"
+          alt="models"
+        />
+      </div>
+
+      <div class="col-md-5 mt-2 mb-5">
+        <div class="links-container d-flex justify-content-around">
+          <a HighlightOnClick class="text-nowrap" (click)="viewLoginForm()"
+            >Login</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="showRegistrationForm()"
+            >Sign up</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('about'); $event.preventDefault()"
+            >About us</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('stores'); $event.preventDefault()"
+            >Our Stores</a
+          >
+          <a
+            HighlightOnClick
+            class="text-nowrap"
+            (click)="scrollTo('services'); $event.preventDefault()"
+            >Services</a
+          >
+        </div>
+
+        <div class="d-flex justify-content-center mt-5">
+          <img
+            class="logo-auth"
+            src="assets/imgs/trendy-logo.png"
+            alt="Trendy Logo"
+          />
+        </div>
+
+        <!-- ============ Login Form ============ -->
+
+        <form
+          (ngSubmit)="loginSubmit()"
+          class="row ms-auto me-auto mt-5"
+          style="width: 85%"
+          *ngIf="showLoginForm"
+          [formGroup]="loginForm"
+        >
+          <h1 class="fs-3 text-center mb-5">Login</h1>
+          <div class="col-md-12">
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              id="inputLoginUsername"
+              placeholder="User Name"
+              formControlName="username"
+            />
+          </div>
+          <div class="col-md-12">
+            <input
+              type="password"
+              name="password"
+              class="form-control mt-3"
+              id="inputLoginPassword"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+          <div class="d-flex justify-content-center mt-3" style="width: 100%">
+            <button
+              type="submit"
+              class="btn btn-dark w-50 text-uppercase rounded-0"
+              [disabled]="!loginForm.valid"
+            >
+              Login
+            </button>
+          </div>
+
+          <!-- ============ Error messages for login ============ -->
+          <div
+            [hidden]="loginForm.valid || loginForm.untouched"
+            class="d-flex flex-column align-items-center mt-3 text-danger w-50"
+          >
+            <small
+              *ngIf="getUserName?.touched && getUserName?.errors?.['required']"
+              >Username is required</small
+            >
+
+            <small
+              *ngIf="getPassword?.touched && getPassword?.errors?.['required']"
+              >Password is required</small
+            >
+
+            <div *ngIf="loginError" class="text-danger mt-3 mb-3 text-nowrap">
+              {{ loginError }}
+            </div>
+          </div>
+        </form>
+
+        <!-- ============ Signup Form ============ -->
+
+        <form
+          (ngSubmit)="registerSubmit()"
+          *ngIf="!isUserRegistered && !showLoginForm"
+          [formGroup]="registrationForm"
+          class="ms-auto me-auto mt-5"
+          style="width: 85%"
+        >
+          <h1 class="fs-3 text-center mb-5">Sign up</h1>
+          <div class="row">
+            <div class="col-md-4">
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail4"
+                placeholder="E-Mail"
+                formControlName="email"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword4"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputUsername"
+                placeholder="User"
+                formControlName="userName"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputFirstName"
+                placeholder="First Name"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                id="inputLastName"
+                placeholder="Last Name"
+                formControlName="lastName"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-2" formGroupName="address">
+            <div class="col-md-8">
+              <input
+                type="text"
+                class="form-control"
+                id="inputStreet"
+                placeholder="Street"
+                formControlName="street"
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="text"
+                class="form-control"
+                id="inputNr"
+                placeholder="Nr."
+                formControlName="streetNumber"
+              />
+            </div>
+            <div class="col-md-4 mt-2">
+              <input
+                type="text"
+                class="form-control"
+                id="inputZipCode"
+                placeholder="ZIP code"
+                formControlName="zipCode"
+              />
+            </div>
+            <div class="col-md-8 mt-2">
+              <input
+                type="text"
+                class="form-control"
+                id="inputCity"
+                placeholder="City"
+                formControlName="city"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-3" style="width: 100%">
+            <button
+              type="submit"
+              class="btn btn-dark w-50 text-uppercase rounded-0"
+              [disabled]="!registrationForm.valid"
+            >
+              Register
+            </button>
+          </div>
+
+          <!-- ============ Errog messages for signup ============ -->
+          <div
+            [hidden]="registrationForm.valid || registrationForm.untouched"
+            class="text-center mt-3 w-50 mx-auto text-danger d-flex flex-column"
+          >
+            <small *ngIf="email?.touched && email?.errors?.['required']">
+              E-Mail is required!
+            </small>
+
+            <small *ngIf="email?.touched && email?.errors?.['pattern']">
+              Valid E-Mail is required!
+            </small>
+
+            <small *ngIf="pasword?.touched && pasword?.errors?.['required']">
+              Password is required!
+            </small>
+
+            <small *ngIf="userName?.touched && userName?.errors?.['required']">
+              Username is required!
+            </small>
+
+            <small
+              *ngIf="firstName?.touched && firstName?.errors?.['required']"
+            >
+              First name is required!
+            </small>
+
+            <small *ngIf="lastName?.touched && lastName?.errors?.['required']">
+              Last name is required!
+            </small>
+
+            <small *ngIf="street?.touched && street?.errors?.['required']"
+              >Street name is required!</small
+            >
+
+            <small
+              *ngIf="streetNumber?.touched && streetNumber?.errors?.['required']"
+              >Street Nr. name is required!</small
+            >
+
+            <small *ngIf="zipCode?.touched && zipCode?.errors?.['required']"
+              >City Zip is required!</small
+            >
+
+            <small *ngIf="city?.touched && city?.errors?.['required']"
+              >City name is required!</small
+            >
+          </div>
+        </form>
+
+        <div class="mx-auto w-75 d-flex justify-content-center">
+          <a class="d-flex align-items-center text-black" routerLink="/note"
+            ><i
+              class="fa-solid fa-circle-info fs-3 me-1"
+              style="color: #00040a"
+            ></i
+            >Please click here before start with Signup</a
+          >
+        </div>
+
+        <div
+          *ngIf="isUserRegistered && !showLoginForm"
+          class="alert alert-warning w-75 ms-auto me-auto d-flex flex-column align-items-center justify-content-center mt-5"
+          role="alert"
+        >
+          <h2 class="text-black-50">Your registration has been successful.</h2>
+          <a HighlightOnClick class="text-nowrap" (click)="viewLoginForm()"
+            >Login</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="about">
+  <app-about-us></app-about-us>
+</div>
+
+<div id="stores">
+  <app-our-stores></app-our-stores>
+</div>
+
+<div id="services">
+  <app-our-service></app-our-service>
+</div>
+
+<app-footer></app-footer>
