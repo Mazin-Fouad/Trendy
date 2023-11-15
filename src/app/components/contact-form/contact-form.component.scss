@@ -3,6 +3,7 @@
 section {
     min-height: 100dvh;
     background-color: #212529;
+
     .contact-header {
         h1 {
             position: relative;
@@ -21,5 +22,9 @@ section {
 
     .form-label {
         margin-bottom: 0;
+    }
+
+    .messageBox {
+        margin-top: 300px;
     }
 }
