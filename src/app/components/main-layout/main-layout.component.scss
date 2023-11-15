@@ -3,5 +3,10 @@
 section {
     min-height: 100dvh;
     background: $bg-color-main;
-    // background: linear-gradient(to bottom, #dae8fc 0%, #fff2e2 100%);
+
+    .fill {
+        right: 0;
+        bottom: -85px;
+        width: auto;
+    }
 }
