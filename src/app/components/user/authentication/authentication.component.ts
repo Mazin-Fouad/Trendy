@@ -149,4 +149,9 @@ export class AuthenticationComponent implements OnInit {
   get getPassword() {
     return this.loginForm.get('password');
   }
+
+  onGuestLogin() {
+    this.authService.guestLogin();
+    this.router.navigate(['/main']);
+  }
 }

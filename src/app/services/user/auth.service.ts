@@ -57,4 +57,9 @@ export class AuthService {
   clearToken(): void {
     localStorage.removeItem('authToken');
   }
+
+  guestLogin(): void {
+    const guestToken = 'GUEST-TOKEN';
+    this.setToken(guestToken);
+  }
 }

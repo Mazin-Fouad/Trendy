@@ -51,17 +51,6 @@ export class AuthenticationMobileViewComponent {
     this.registrationForm.reset();
   }
 
-  // loginSubmit() {
-  //   if (this.loginForm.valid) {
-  //     const loginData = this.loginForm.value;
-
-  //     this.authService.login(loginData).subscribe((response) => {
-  //       console.log(response);
-  //     });
-  //   }
-  //   this.router.navigate(['/main']);
-  // }
-
   loginSubmit() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
@@ -155,5 +144,10 @@ export class AuthenticationMobileViewComponent {
 
   get getPassword() {
     return this.loginForm.get('password');
+  }
+
+  onGuestLogin() {
+    this.authService.guestLogin();
+    this.router.navigate(['/main']);
   }
 }
