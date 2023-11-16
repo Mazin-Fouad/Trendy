@@ -48,3 +48,9 @@ section {
         z-index: 0;
     }
 }
+
+@media (max-width: 575px) {
+    .custom-padding-top {
+        padding-top: 100px;
+    }
+}

@@ -1,4 +1,4 @@
-<section class="position-relative">
+<section class="position-relative overflow-x-hidden">
   <div class="container">
     <div class="pb-5">
       <app-navbar></app-navbar>
@@ -21,7 +21,7 @@
       >
     </div>
 
-    <div class="container mt-5 pb-0 pb-md-5">
+    <div class="container mt-5 pb-0 pb-md-5 custom-padding-top">
       <div class="row justify-content-between align-items-center">
         <div class="col col-xl-5">
           <h1 class="fw-bold main-text headline">{{ storeData.mainText }}</h1>
@@ -52,7 +52,11 @@
         >
           <div class="d-flex flex-column align-items-center mt-5">
             <div class="position-relative">
-              <img class="rounded-pill" [src]="storeData.firstImg" />
+              <img
+                class="rounded-pill"
+                [src]="storeData.firstImg"
+                style="max-width: 450px"
+              />
               <img
                 class="position-absolute line d-none d-xl-block"
                 src="assets/imgs/line.png"

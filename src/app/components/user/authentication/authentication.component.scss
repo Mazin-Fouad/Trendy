@@ -62,3 +62,9 @@ form {
     color: red !important;
     font-size: 20px;
 }
+
+video {
+    max-width: 60dvw;
+    height: 100dvh;
+    object-fit: cover;
+}
