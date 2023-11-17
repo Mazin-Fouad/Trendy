@@ -22,12 +22,14 @@ export class BillComponent {
 
   calculateDiscountValue(): number {
     const total = this.calculateTotal();
-    return total > 100 ? total * 0.1 : 0;
+    // Updated the discount value to 20%
+    return total > 100 ? total * 0.2 : 0;
   }
 
   calculateDiscountedTotal(): number {
     const total = this.calculateTotal();
-    return total > 100 ? total * 0.9 : total;
+    // Apply 20% discount if total is greater than 100€
+    return total > 100 ? total * 0.8 : total;
   }
 
   openDialog() {
