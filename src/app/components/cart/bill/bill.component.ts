@@ -31,15 +31,4 @@ export class BillComponent {
     // Apply 20% discount if total is greater than 100€
     return total > 100 ? total * 0.8 : total;
   }
-
-  openDialog() {
-    const dialogRef: MatDialogRef<CompleteOrderComponent> = this.dialog.open(
-      CompleteOrderComponent
-    );
-
-    dialogRef.componentInstance.countdownCompleted.subscribe(() => {
-      dialogRef.close();
-      this.dialogClosed.emit();
-    });
-  }
 }

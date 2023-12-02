@@ -34,14 +34,13 @@
   </div>
 
   <div class="d-flex justify-content-center mt-3" style="width: 100%">
-    <button
-      (click)="openDialog()"
-      type="submit"
+    <a
+      routerLink="/payment"
       class="btn btn-dark w-50 text-uppercase rounded-0"
-      [disabled]="itemsInCart.length === 0"
+      [ngClass]="{ disabled: itemsInCart.length === 0 }"
     >
       Complete Order
-    </button>
+    </a>
   </div>
 </div>
 

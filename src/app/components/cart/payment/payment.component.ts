@@ -8,12 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PaymentComponent {
   paymentForm: FormGroup;
+  paymentDataSent: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.paymentForm = this.formBuilder.group({
       masterCard: ['', [Validators.pattern(/^\d{16}$/)]],
       visaCard: ['', [Validators.pattern(/^\d{16}$/)]],
-      cardholderName: ['', [Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      cardholderName: ['John Doe', [Validators.pattern(/^[a-zA-Z\s]*$/)]],
       expireDate: ['', [Validators.pattern(/^(0[1-9]|1[0-2])\/\d{4}$/)]], // Validates MM/YYYY format
       cvv: ['', [Validators.pattern(/^\d{3}$/)]],
     });
@@ -42,9 +43,12 @@ export class PaymentComponent {
   }
 
   onSubmit() {
-    if (this.paymentForm.valid) {
-      console.log('Payment form Submission', this.paymentForm.value);
-    }
+    setTimeout(() => {
+      if (this.paymentForm.valid) {
+        this.paymentDataSent = true;
+        console.log('Payment form Submission', this.paymentForm.value);
+      }
+    }, 1000);
   }
 
   emptyMasterCard() {
