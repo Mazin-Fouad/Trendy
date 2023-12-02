@@ -48,6 +48,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CompleteOrderComponent } from './components/cart/complete-order/complete-order.component';
 import { ImportantNoteComponent } from './components/user/important-note/important-note.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { AdvertisementsComponent } from './components/advertisements/advertisements.component';
+import { PaymentComponent } from './components/cart/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     CompleteOrderComponent,
     ImportantNoteComponent,
     ContactFormComponent,
+    AdvertisementsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

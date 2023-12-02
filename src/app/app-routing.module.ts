@@ -11,6 +11,7 @@ import { ImportantNoteComponent } from './components/user/important-note/importa
 import { AuthGuard } from './guards/auth.guard';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PaymentComponent } from './components/cart/payment/payment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactFormComponent },
   { path: 'note', component: ImportantNoteComponent },
   { path: 'terms', component: TermsComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
