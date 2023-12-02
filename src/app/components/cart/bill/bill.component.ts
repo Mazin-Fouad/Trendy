@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { CompleteOrderComponent } from '../complete-order/complete-order.component';
+import { SharedService } from 'src/app/services/apiData/shared.service';
 
 @Component({
   selector: 'app-bill',
@@ -11,7 +10,7 @@ export class BillComponent {
   @Input() itemsInCart!: any[];
   @Output() dialogClosed: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(private sharedService: SharedService) {}
 
   calculateTotal(): number {
     return this.itemsInCart.reduce(

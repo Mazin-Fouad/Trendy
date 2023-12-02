@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { of } from 'rxjs';
+import { SharedService } from 'src/app/services/apiData/shared.service';
 
 @Component({
   selector: 'app-payment',
@@ -9,8 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PaymentComponent {
   paymentForm: FormGroup;
   paymentDataSent: boolean = false;
+  itemsInCart: any[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private sharedService: SharedService
+  ) {
     this.paymentForm = this.formBuilder.group({
       masterCard: ['', [Validators.pattern(/^\d{16}$/)]],
       visaCard: ['', [Validators.pattern(/^\d{16}$/)]],
@@ -43,12 +49,12 @@ export class PaymentComponent {
   }
 
   onSubmit() {
-    setTimeout(() => {
-      if (this.paymentForm.valid) {
-        this.paymentDataSent = true;
-        console.log('Payment form Submission', this.paymentForm.value);
-      }
-    }, 1000);
+    if (this.paymentForm.valid) {
+      this.paymentDataSent = true;
+      console.log('Payment form Submission', this.paymentForm.value);
+      this.sharedService.itemsInCart$ = of([]);
+      //To send to the server..
+    }
   }
 
   emptyMasterCard() {

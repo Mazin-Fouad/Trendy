@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment.development';
 import { AuthService } from '../user/auth.service';
-import { UserCart } from 'src/app/models/user-cart';
 
 @Injectable({
   providedIn: 'root',
