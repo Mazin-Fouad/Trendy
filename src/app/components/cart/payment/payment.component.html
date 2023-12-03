@@ -39,6 +39,7 @@
                       <div class="form-outline">
                         <input
                           formControlName="masterCard"
+                          appCardNumberFormat
                           type="text"
                           id="formControlLgXc"
                           class="form-control form-control-lg"
@@ -93,6 +94,7 @@
                     <div class="flex-fill mx-3">
                       <div class="form-outline">
                         <input
+                          appCardNumberFormat
                           formControlName="visaCard"
                           type="text"
                           id="formControlLgXs"
@@ -110,7 +112,8 @@
                   <div
                     *ngIf="
                       paymentForm.get('visaCard')?.invalid &&
-                      paymentForm.get('visaCard')?.touched
+                      paymentForm.get('visaCard')?.touched &&
+                      paymentForm.get('visaCard')?.errors?.['pattern']
                     "
                   >
                     <small class="text-danger"
@@ -217,7 +220,8 @@
     class="alert alert-info p-3 d-flex flex-column align-items-center justify-content-center"
     role="alert"
   >
-    <i class="fa-solid fa-check fs-2 mb-2" style="color: #000714"></i>
+    <!-- <i class="fa-solid fa-check fs-2 mb-2" style="color: #000714"></i> -->
+    <i class="fa-solid fa-circle-check fs-1 mb-2" style="color: #3c6718"></i>
     <h2>
       You have successfully completed your order We will send the order to you
       as quickly as possible

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/apiData/shared.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class BillComponent {
   @Input() itemsInCart!: any[];
   @Output() dialogClosed: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   calculateTotal(): number {
     return this.itemsInCart.reduce(

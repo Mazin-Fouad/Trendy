@@ -16,6 +16,7 @@ import { PaymentComponent } from './components/cart/payment/payment.component';
 const routes: Routes = [
   { path: '', redirectTo: 'entrance', pathMatch: 'full' },
   { path: 'entrance', component: AuthenticationComponent },
+
   {
     path: 'main',
     component: MainLayoutComponent,

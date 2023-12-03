@@ -18,11 +18,17 @@ export class PaymentComponent {
     private sharedService: SharedService
   ) {
     this.paymentForm = this.formBuilder.group({
-      masterCard: ['', [Validators.pattern(/^\d{16}$/)]],
-      visaCard: ['', [Validators.pattern(/^\d{16}$/)]],
-      cardholderName: ['John Doe', [Validators.pattern(/^[a-zA-Z\s]*$/)]],
-      expireDate: ['', [Validators.pattern(/^(0[1-9]|1[0-2])\/\d{4}$/)]], // Validates MM/YYYY format
-      cvv: ['', [Validators.pattern(/^\d{3}$/)]],
+      masterCard: ['', [Validators.pattern(/^(\d{4}\s){3}\d{4}$/)]],
+      visaCard: ['', [Validators.pattern(/^(\d{4}\s){3}\d{4}$/)]],
+      cardholderName: [
+        '',
+        [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)],
+      ],
+      expireDate: [
+        '',
+        [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{4}$/)],
+      ], // Validates MM/YYYY format and makes it required
+      cvv: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]], // Makes CVV required
     });
 
     this.onChanges();

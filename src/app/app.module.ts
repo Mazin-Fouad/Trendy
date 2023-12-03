@@ -50,6 +50,7 @@ import { ImportantNoteComponent } from './components/user/important-note/importa
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { AdvertisementsComponent } from './components/advertisements/advertisements.component';
 import { PaymentComponent } from './components/cart/payment/payment.component';
+import { CardNumberFormatDirective } from './directives/card-number-format.directive';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { PaymentComponent } from './components/cart/payment/payment.component';
     ContactFormComponent,
     AdvertisementsComponent,
     PaymentComponent,
+    CardNumberFormatDirective,
   ],
   imports: [
     BrowserModule,
